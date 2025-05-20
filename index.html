@@ -81,7 +81,7 @@
                     <h2 class="typed-text-output d-inline"></h2>
                     <div class="typed-text d-none">Web Designer, Web Developer, Front End Developer, Apps Designer, Apps Developer</div>
                     <div class="d-flex align-items-center pt-5">
-                        <a href="download.php" class="btn btn-primary py-3 px-4 me-5">Download CV</a>
+                        <a onclick="downloadFile()" class="btn btn-primary py-3 px-4 me-5">Download CV</a>
                         <!-- <button type="button" class="btn-play" data-bs-toggle="modal"
                             data-src="https://www.youtube.com/embed/DWRcNpR6Kdc" data-bs-target="#videoModal">
                             <span></span>
@@ -709,9 +709,22 @@
         // JavaScript to set the current year
         document.getElementById("year").textContent = new Date().getFullYear();
     
-        // Get the site/domain name
-        const siteName = window.location.hostname;
-        document.getElementById("site-name").textContent = siteName;
+        document.getElementById("year").textContent = new Date().getFullYear();
+
+        // Get hostname and remove ".site"
+        const hostname = window.location.hostname; // e.g., sethdev.site
+        const cleanName = hostname.replace('.site', ''); // removes the .site part
+
+        document.getElementById("site-name").textContent = cleanName;
+
+        function downloadFile() {
+            const link = document.createElement('a');
+            link.href = 'assets/SUBHAJIT-SETH-CV.pdf';  // path to your file
+            link.download = 'SUBHAJIT-SETH-CV.pdf';     // the name it will be saved as
+            document.body.appendChild(link);  // required for Firefox
+            link.click();
+            document.body.removeChild(link);  // cleanup
+        }
     </script>
 </body>
 
