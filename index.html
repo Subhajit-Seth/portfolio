@@ -675,9 +675,9 @@
     <div class="container-fluid bg-dark text-white py-4">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">Copyright 
-                        &copy; <?php echo date("Y"); ?><a class="border-bottom text-secondary" href="#">Your Site Name</a>, All Right Reserved.
-                        Copyright © 2025 · Moshiur · All Rights Reserved
+                    <div class="col-md-12 text-center mb-3 mb-md-0">Copyright
+                        &copy; <span id="year"></span><a class="border-bottom text-secondary" href="#">
+                         <span id="site-name"></span> </a>, All Right Reserved
                     </div>
                 </div>
             </div>
@@ -704,6 +704,15 @@
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
+
+    <script>
+        // JavaScript to set the current year
+        document.getElementById("year").textContent = new Date().getFullYear();
+    
+        // Get the site/domain name
+        const siteName = window.location.hostname;
+        document.getElementById("site-name").textContent = siteName;
+    </script>
 </body>
 
 </html>
