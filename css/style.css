@@ -1,7 +1,7 @@
 /********** Template CSS **********/
 :root {
-    --primary: #6244C5;
-    --secondary: #FFC448;
+    --primary: #7366ff;
+    --secondary: #f8f9fa;
     --light: #FAFAFB;
     --dark: #12141D;
 }
@@ -282,7 +282,7 @@
     height: 100%;
     top: 0;
     left: 0;
-    background: rgba(98, 68, 197, .9);
+    background: rgba(0, 0, 0, 0.5);
     display: flex;
     align-items: flex-end;
     justify-content: flex-start;
@@ -427,4 +427,10 @@
 
 .testimonial-carousel .owl-dot.active::after {
     background: var(--primary);
+}
+
+#response-message {
+    margin-top: 10px;
+    font-weight: bold;
+    display: none;
 }
