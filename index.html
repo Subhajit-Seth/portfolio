@@ -1,0 +1,1092 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Futuristic Portfolio</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
+    <style>
+        :root {
+            --primary: #0ea5e9;
+            --secondary: #8b5cf6;
+            --dark: #0f172a;
+            --darker: #020617;
+            --light: #f8fafc;
+            --accent1: #ef4444;
+            --accent2: #10b981;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Rajdhani', sans-serif;
+            background-color: var(--darker);
+            color: var(--light);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Orbitron', sans-serif;
+        }
+
+        #particles-js {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        .glass {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.5s ease;
+        }
+
+        .glass-card:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.1);
+            box-shadow: 0 10px 40px rgba(8, 112, 184, 0.4);
+        }
+
+        .gradient-text {
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .gradient-border {
+            position: relative;
+            border-radius: 16px;
+            overflow: hidden;
+        }
+
+        .gradient-border::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, var(--primary), var(--secondary), var(--accent1), var(--accent2));
+            z-index: -1;
+            border-radius: 18px;
+            background-size: 300% 300%;
+            animation: gradient-animation 5s ease infinite;
+        }
+
+        @keyframes gradient-animation {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        .progress-bar {
+            height: 8px;
+            border-radius: 8px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            position: relative;
+            overflow: hidden;
+        }
+
+        .progress-bar::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -50%;
+            width: 50%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.3);
+            animation: progress-animation 2s ease infinite;
+        }
+
+        @keyframes progress-animation {
+            0% {
+                transform: translateX(-100%);
+            }
+            100% {
+                transform: translateX(300%);
+            }
+        }
+
+        .navbar {
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1000;
+            padding: 15px 30px;
+            border-radius: 50px;
+            transition: all 0.5s ease;
+            backdrop-filter: blur(8px);
+            background: rgba(2, 6, 23, 0.3);
+        }
+
+        .navbar.scrolled {
+            background: rgba(2, 6, 23, 0.9);
+            backdrop-filter: blur(12px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .nav-link {
+            position: relative;
+            margin: 0 15px;
+            padding: 8px 12px;
+            text-decoration: none;
+            color: var(--light);
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border-radius: 8px;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover {
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--primary);
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 10;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .hero-3d {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 50%;
+            height: 100%;
+            z-index: 5;
+        }
+
+        .btn-futuristic {
+            background: rgba(14, 165, 233, 0.1);
+            color: var(--light);
+            border: 1px solid var(--primary);
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-family: 'Orbitron', sans-serif;
+            letter-spacing: 1px;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            z-index: 1;
+            text-decoration: none;
+            display: inline-block;
+            cursor: pointer;
+        }
+
+        .btn-futuristic:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(14, 165, 233, 0.3);
+            background: rgba(14, 165, 233, 0.2);
+        }
+
+        .btn-futuristic::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.7s ease;
+            z-index: -1;
+        }
+
+        .btn-futuristic:hover::before {
+            left: 100%;
+        }
+
+        .project-card {
+            height: 280px;
+            perspective: 1000px;
+            position: relative;
+        }
+
+        .project-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.8s;
+            transform-style: preserve-3d;
+        }
+
+        .project-card:hover .project-card-inner {
+            transform: rotateY(180deg);
+        }
+
+        .project-front, .project-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+            border-radius: 16px;
+            overflow: hidden;
+        }
+
+        .project-back {
+            transform: rotateY(180deg);
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .social-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            text-decoration: none;
+            color: white;
+        }
+
+        .social-icon:hover {
+            transform: translateY(-5px);
+            background: rgba(14, 165, 233, 0.2);
+            color: var(--primary);
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounce 2s infinite;
+            z-index: 10;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0) translateX(-50%);
+            }
+            40% {
+                transform: translateY(-20px) translateX(-50%);
+            }
+            60% {
+                transform: translateY(-10px) translateX(-50%);
+            }
+        }
+
+        .reveal {
+            position: relative;
+            opacity: 1;
+            transform: translateY(0);
+            transition: all 1s ease;
+        }
+
+        .reveal.animate {
+            opacity: 0;
+            transform: translateY(50px);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .glow {
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(14, 165, 233, 0.3) 0%, rgba(14, 165, 233, 0.1) 30%, transparent 70%);
+            filter: blur(60px);
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        .glow-1 {
+            top: 10%;
+            right: 10%;
+            background: radial-gradient(circle, rgba(14, 165, 233, 0.3) 0%, rgba(14, 165, 233, 0.1) 30%, transparent 70%);
+        }
+
+        .glow-2 {
+            bottom: 30%;
+            left: 10%;
+            background: radial-gradient(circle, rgba(139, 92, 246, 0.3) 0%, rgba(139, 92, 246, 0.1) 30%, transparent 70%);
+        }
+
+        .glow-3 {
+            top: 60%;
+            right: 20%;
+            background: radial-gradient(circle, rgba(239, 68, 68, 0.2) 0%, rgba(239, 68, 68, 0.1) 30%, transparent 70%);
+        }
+
+        .skill-pill {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(8px);
+            border-radius: 50px;
+            padding: 8px 16px;
+            margin: 5px;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            display: inline-block;
+        }
+
+        .skill-pill:hover {
+            transform: translateY(-3px);
+            background: rgba(14, 165, 233, 0.2);
+            box-shadow: 0 5px 15px rgba(14, 165, 233, 0.2);
+        }
+
+        .typing-effect::after {
+            content: '|';
+            animation: blink 1s infinite;
+        }
+
+        @keyframes blink {
+            0%, 100% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0;
+            }
+        }
+
+        input, textarea {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--light);
+            border-radius: 8px;
+            padding: 12px 20px;
+            width: 100%;
+            transition: all 0.3s ease;
+        }
+
+        input:focus, textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 2px rgba(14, 165, 233, 0.3);
+        }
+
+        input::placeholder, textarea::placeholder {
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        section {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Mobile Menu Styles */
+        #mobile-menu {
+            backdrop-filter: blur(20px);
+            background: rgba(2, 6, 23, 0.95);
+        }
+
+        .mobile-nav-link {
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .mobile-nav-link:hover {
+            color: var(--primary) !important;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .hero-3d {
+                opacity: 0.3;
+                width: 100%;
+            }
+            
+            .navbar {
+                width: 90%;
+                padding: 10px 20px;
+            }
+            
+            h1 {
+                font-size: 2.5rem !important;
+            }
+            
+            h2 {
+                font-size: 2rem !important;
+            }
+
+            .hero-content {
+                padding-top: 100px;
+            }
+
+            .glow {
+                display: none;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .navbar {
+                width: 95%;
+                padding: 8px 15px;
+            }
+
+            .logo {
+                font-size: 20px;
+            }
+
+            .nav-link {
+                margin: 0 8px;
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="particles-js"></div>
+    
+    <div class="glow glow-1"></div>
+    <div class="glow glow-2"></div>
+    <div class="glow glow-3"></div>
+    
+    <nav class="navbar glass flex items-center justify-between">
+        <div class="logo gradient-text">ALEX<span class="text-white">DEV</span></div>
+        <div class="hidden md:flex">
+            <a href="#home" class="nav-link">Home</a>
+            <a href="#about" class="nav-link">About</a>
+            <a href="#skills" class="nav-link">Skills</a>
+            <a href="#projects" class="nav-link">Projects</a>
+            <a href="#contact" class="nav-link">Contact</a>
+        </div>
+        <div class="md:hidden">
+            <button id="mobile-menu-btn" class="text-white">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+    
+    <div id="mobile-menu" class="fixed top-0 left-0 w-full h-full z-50 hidden flex flex-col items-center justify-center">
+        <button id="close-menu-btn" class="absolute top-5 right-5 text-white text-2xl">
+            <i class="fas fa-times"></i>
+        </button>
+        <a href="#home" class="mobile-nav-link text-white text-2xl my-3">Home</a>
+        <a href="#about" class="mobile-nav-link text-white text-2xl my-3">About</a>
+        <a href="#skills" class="mobile-nav-link text-white text-2xl my-3">Skills</a>
+        <a href="#projects" class="mobile-nav-link text-white text-2xl my-3">Projects</a>
+        <a href="#contact" class="mobile-nav-link text-white text-2xl my-3">Contact</a>
+    </div>
+    
+    <section id="home" class="relative min-h-screen flex items-center">
+        <div id="hero-3d" class="hero-3d"></div>
+        <div class="container mx-auto px-4">
+            <div class="hero-content">
+                <div class="w-full md:w-2/3">
+                    <p class="text-blue-400 mb-2 tracking-wider reveal" id="typing-text">WELCOME TO MY PORTFOLIO</p>
+                    <h1 class="text-5xl md:text-7xl font-bold mb-4 reveal">I'm <span class="gradient-text">Alex Smith</span></h1>
+                    <h2 class="text-3xl md:text-4xl mb-6 text-gray-300 reveal">Full Stack Developer & UI/UX Designer</h2>
+                    <p class="text-gray-400 text-lg mb-8 max-w-lg reveal">Creating cutting-edge digital experiences with a focus on performance, aesthetics, and user-centered design.</p>
+                    <div class="flex flex-wrap gap-4 reveal">
+                        <a href="#projects" class="btn-futuristic">View My Work</a>
+                        <a href="#contact" class="btn-futuristic bg-transparent">Get In Touch</a>
+                    </div>
+                </div>
+            </div>
+            <div class="scroll-indicator">
+                <i class="fas fa-chevron-down text-white text-2xl"></i>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="py-20 relative">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-4 reveal"><span class="gradient-text">About</span> Me</h2>
+                <div class="w-24 h-1 bg-blue-500 mx-auto rounded-full mb-8 reveal"></div>
+            </div>
+            
+            <div class="flex flex-wrap -mx-4">
+                <div class="w-full md:w-1/2 px-4 mb-8 md:mb-0">
+                    <div class="glass-card p-8 h-full reveal">
+                        <h3 class="text-2xl font-bold mb-4">My Journey</h3>
+                        <p class="text-gray-300 mb-6">
+                            I'm a passionate tech enthusiast with over 5 years of experience in web and mobile app development.
+                            My journey started with a fascination for code and design, which has evolved into a career creating
+                            digital solutions that solve real-world problems.
+                        </p>
+                        <p class="text-gray-300">
+                            I specialize in building modern, responsive applications using the latest technologies.
+                            My approach combines technical expertise with creative thinking to deliver products
+                            that not only function flawlessly but also provide exceptional user experiences.
+                        </p>
+                    </div>
+                </div>
+                <div class="w-full md:w-1/2 px-4">
+                    <div class="glass-card gradient-border p-8 h-full reveal">
+                        <h3 class="text-2xl font-bold mb-4">What I Do</h3>
+                        <div class="mb-6">
+                            <div class="flex items-center mb-2">
+                                <i class="fas fa-code text-blue-400 mr-3 text-xl"></i>
+                                <h4 class="text-xl font-semibold">Web Development</h4>
+                            </div>
+                            <p class="text-gray-300 pl-8">Creating responsive, performant websites and web applications.</p>
+                        </div>
+                        <div class="mb-6">
+                            <div class="flex items-center mb-2">
+                                <i class="fas fa-mobile-alt text-purple-400 mr-3 text-xl"></i>
+                                <h4 class="text-xl font-semibold">Mobile App Development</h4>
+                            </div>
+                            <p class="text-gray-300 pl-8">Building native and cross-platform mobile applications.</p>
+                        </div>
+                        <div class="mb-6">
+                            <div class="flex items-center mb-2">
+                                <i class="fas fa-pencil-ruler text-red-400 mr-3 text-xl"></i>
+                                <h4 class="text-xl font-semibold">UI/UX Design</h4>
+                            </div>
+                            <p class="text-gray-300 pl-8">Designing intuitive interfaces and seamless user experiences.</p>
+                        </div>
+                        <div>
+                            <div class="flex items-center mb-2">
+                                <i class="fas fa-server text-green-400 mr-3 text-xl"></i>
+                                <h4 class="text-xl font-semibold">Backend Development</h4>
+                            </div>
+                            <p class="text-gray-300 pl-8">Creating robust server-side applications and APIs.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" class="py-20 relative bg-opacity-30 bg-black">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-4 reveal"><span class="gradient-text">My</span> Skills</h2>
+                <div class="w-24 h-1 bg-purple-500 mx-auto rounded-full mb-8 reveal"></div>
+            </div>
+            
+            <div class="flex flex-wrap -mx-4">
+                <div class="w-full md:w-1/2 px-4 mb-8">
+                    <div class="glass-card p-8 h-full reveal">
+                        <h3 class="text-2xl font-bold mb-6">Technical Skills</h3>
+                        
+                        <div class="mb-6">
+                            <div class="flex justify-between mb-2">
+                                <span>JavaScript</span>
+                                <span>95%</span>
+                            </div>
+                            <div class="w-full bg-gray-700 rounded-full h-2">
+                                <div class="progress-bar" style="width: 95%"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-6">
+                            <div class="flex justify-between mb-2">
+                                <span>React</span>
+                                <span>90%</span>
+                            </div>
+                            <div class="w-full bg-gray-700 rounded-full h-2">
+                                <div class="progress-bar" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-6">
+                            <div class="flex justify-between mb-2">
+                                <span>Node.js</span>
+                                <span>85%</span>
+                            </div>
+                            <div class="w-full bg-gray-700 rounded-full h-2">
+                                <div class="progress-bar" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-6">
+                            <div class="flex justify-between mb-2">
+                                <span>Python</span>
+                                <span>80%</span>
+                            </div>
+                            <div class="w-full bg-gray-700 rounded-full h-2">
+                                <div class="progress-bar" style="width: 80%"></div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span>UI/UX Design</span>
+                                <span>85%</span>
+                            </div>
+                            <div class="w-full bg-gray-700 rounded-full h-2">
+                                <div class="progress-bar" style="width: 85%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="w-full md:w-1/2 px-4">
+                    <div class="glass-card p-8 h-full reveal">
+                        <h3 class="text-2xl font-bold mb-6">Technologies & Tools</h3>
+                        
+                        <div class="flex flex-wrap">
+                            <span class="skill-pill">JavaScript</span>
+                            <span class="skill-pill">TypeScript</span>
+                            <span class="skill-pill">React</span>
+                            <span class="skill-pill">Vue.js</span>
+                            <span class="skill-pill">Angular</span>
+                            <span class="skill-pill">Node.js</span>
+                            <span class="skill-pill">Express</span>
+                            <span class="skill-pill">MongoDB</span>
+                            <span class="skill-pill">PostgreSQL</span>
+                            <span class="skill-pill">GraphQL</span>
+                            <span class="skill-pill">Docker</span>
+                            <span class="skill-pill">AWS</span>
+                            <span class="skill-pill">Firebase</span>
+                            <span class="skill-pill">Git</span>
+                            <span class="skill-pill">GitHub</span>
+                            <span class="skill-pill">Figma</span>
+                            <span class="skill-pill">Adobe XD</span>
+                            <span class="skill-pill">Tailwind CSS</span>
+                            <span class="skill-pill">SASS</span>
+                            <span class="skill-pill">Jest</span>
+                            <span class="skill-pill">Cypress</span>
+                            <span class="skill-pill">WebGL</span>
+                            <span class="skill-pill">Three.js</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="py-20 relative">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-4 reveal"><span class="gradient-text">My</span> Projects</h2>
+                <div class="w-24 h-1 bg-blue-500 mx-auto rounded-full mb-8 reveal"></div>
+                <p class="text-gray-300 max-w-2xl mx-auto reveal">A selection of my recent work that showcases my skills and expertise</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="project-card reveal">
+                    <div class="project-card-inner">
+                        <div class="project-front glass-card">
+                            <div class="h-full bg-gradient-to-br from-blue-900 to-purple-900 flex items-center justify-center">
+                                <div class="text-center p-6">
+                                    <i class="fas fa-globe text-4xl mb-4 text-blue-400"></i>
+                                    <h3 class="text-2xl font-bold">AI Assistant App</h3>
+                                    <p class="text-gray-300 mt-2">Mobile & Web Application</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-back glass-card">
+                            <h3 class="text-xl font-bold mb-4">AI Assistant App</h3>
+                            <p class="text-gray-300 mb-4">A modern AI assistant application that uses natural language processing to help users with everyday tasks.</p>
+                            <p class="text-sm text-gray-400 mb-4">React Native, TensorFlow.js, Node.js, Express</p>
+                            <div class="mt-auto flex justify-end">
+                                <a href="#" class="text-blue-400 hover:text-blue-300 mr-4">
+                                    <i class="fas fa-external-link-alt"></i> View Project
+                                </a>
+                                <a href="#" class="text-blue-400 hover:text-blue-300">
+                                    <i class="fab fa-github"></i> Code
+
+                                                                        </a></div></div></div></div><div class="project-card reveal"><div class="project-card-inner"><div class="project-front glass-card"><div class="h-full bg-gradient-to-br from-green-900 to-teal-900 flex items-center justify-center"><div class="text-center p-6"><i class="fas fa-shopping-cart text-4xl mb-4 text-green-400"></i><h3 class="text-2xl font-bold">E-Commerce Platform</h3><p class="text-gray-300 mt-2">Full Stack Web Application</p></div></div></div><div class="project-back glass-card"><h3 class="text-xl font-bold mb-4">E-Commerce Platform</h3><p class="text-gray-300 mb-4">A complete online shopping platform with payment integration,
+                                                                        inventory management,
+                                                                        and real-time analytics.</p><p class="text-sm text-gray-400 mb-4">React,
+                                                                        Redux,
+                                                                        Node.js,
+                                                                        MongoDB,
+                                                                        Stripe API</p><div class="mt-auto flex justify-end"><a href="#" class="text-green-400 hover:text-green-300 mr-4"><i class="fas fa-external-link-alt"></i>View Project </a><a href="#" class="text-green-400 hover:text-green-300"><i class="fab fa-github"></i>Code </a></div></div></div></div><div class="project-card reveal"><div class="project-card-inner"><div class="project-front glass-card"><div class="h-full bg-gradient-to-br from-red-900 to-pink-900 flex items-center justify-center"><div class="text-center p-6"><i class="fas fa-chart-line text-4xl mb-4 text-red-400"></i><h3 class="text-2xl font-bold">Analytics Dashboard</h3><p class="text-gray-300 mt-2">Data Visualization Platform</p></div></div></div><div class="project-back glass-card"><h3 class="text-xl font-bold mb-4">Analytics Dashboard</h3><p class="text-gray-300 mb-4">Interactive data visualization dashboard with real-time charts,
+                                                                        graphs,
+                                                                        and business intelligence features.</p><p class="text-sm text-gray-400 mb-4">Vue.js,
+                                                                        D3.js,
+                                                                        Python,
+                                                                        FastAPI,
+                                                                        PostgreSQL</p><div class="mt-auto flex justify-end"><a href="#" class="text-red-400 hover:text-red-300 mr-4"><i class="fas fa-external-link-alt"></i>View Project </a><a href="#" class="text-red-400 hover:text-red-300"><i class="fab fa-github"></i>Code </a></div></div></div></div><div class="project-card reveal"><div class="project-card-inner"><div class="project-front glass-card"><div class="h-full bg-gradient-to-br from-yellow-900 to-orange-900 flex items-center justify-center"><div class="text-center p-6"><i class="fas fa-gamepad text-4xl mb-4 text-yellow-400"></i><h3 class="text-2xl font-bold">3D Game Engine</h3><p class="text-gray-300 mt-2">WebGL Gaming Platform</p></div></div></div><div class="project-back glass-card"><h3 class="text-xl font-bold mb-4">3D Game Engine</h3><p class="text-gray-300 mb-4">Browser-based 3D game engine with physics simulation,
+                                                                        lighting effects,
+                                                                        and cross-platform compatibility.</p><p class="text-sm text-gray-400 mb-4">Three.js,
+                                                                        WebGL,
+                                                                        TypeScript,
+                                                                        Cannon.js</p><div class="mt-auto flex justify-end"><a href="#" class="text-yellow-400 hover:text-yellow-300 mr-4"><i class="fas fa-external-link-alt"></i>View Project </a><a href="#" class="text-yellow-400 hover:text-yellow-300"><i class="fab fa-github"></i>Code </a></div></div></div></div><div class="project-card reveal"><div class="project-card-inner"><div class="project-front glass-card"><div class="h-full bg-gradient-to-br from-indigo-900 to-blue-900 flex items-center justify-center"><div class="text-center p-6"><i class="fas fa-users text-4xl mb-4 text-indigo-400"></i><h3 class="text-2xl font-bold">Social Media App</h3><p class="text-gray-300 mt-2">Cross-Platform Mobile App</p></div></div></div><div class="project-back glass-card"><h3 class="text-xl font-bold mb-4">Social Media App</h3><p class="text-gray-300 mb-4">Feature-rich social networking application with real-time messaging,
+                                                                        content sharing,
+                                                                        and community features.</p><p class="text-sm text-gray-400 mb-4">React Native,
+                                                                        Socket.io,
+                                                                        Node.js,
+                                                                        Redis</p><div class="mt-auto flex justify-end"><a href="#" class="text-indigo-400 hover:text-indigo-300 mr-4"><i class="fas fa-external-link-alt"></i>View Project </a><a href="#" class="text-indigo-400 hover:text-indigo-300"><i class="fab fa-github"></i>Code </a></div></div></div></div><div class="project-card reveal"><div class="project-card-inner"><div class="project-front glass-card"><div class="h-full bg-gradient-to-br from-purple-900 to-pink-900 flex items-center justify-center"><div class="text-center p-6"><i class="fas fa-brain text-4xl mb-4 text-purple-400"></i><h3 class="text-2xl font-bold">ML Prediction Tool</h3><p class="text-gray-300 mt-2">AI/ML Web Application</p></div></div></div><div class="project-back glass-card"><h3 class="text-xl font-bold mb-4">ML Prediction Tool</h3><p class="text-gray-300 mb-4">Machine learning-powered prediction tool with data preprocessing,
+                                                                        model training,
+                                                                        and visualization capabilities.</p><p class="text-sm text-gray-400 mb-4">Python,
+                                                                        TensorFlow,
+                                                                        Flask,
+                                                                        React,
+                                                                        Pandas</p><div class="mt-auto flex justify-end"><a href="#" class="text-purple-400 hover:text-purple-300 mr-4"><i class="fas fa-external-link-alt"></i>View Project </a><a href="#" class="text-purple-400 hover:text-purple-300"><i class="fab fa-github"></i>Code </a></div></div></div></div></div></div></section><section id="contact" class="py-20 relative"><div class="container mx-auto px-4"><div class="text-center mb-16"><h2 class="text-4xl font-bold mb-4 reveal"><span class="gradient-text">Get In</span>Touch</h2><div class="w-24 h-1 bg-green-500 mx-auto rounded-full mb-8 reveal"></div><p class="text-gray-300 max-w-2xl mx-auto reveal">Have a project in mind? Let's collaborate and create something amazing together!</p>
+                                     </div><div class="flex flex-wrap -mx-4"><div class="w-full md:w-1/2 px-4 mb-8 md:mb-0"><div class="glass-card p-8 h-full reveal"><h3 class="text-2xl font-bold mb-6">Let's Connect</h3>
+                                     <div class="space-y-6"><div class="flex items-center"><div class="w-12 h-12 bg-blue-500 bg-opacity-20 rounded-full flex items-center justify-center mr-4"><i class="fas fa-envelope text-blue-400"></i></div><div><p class="text-gray-400">Email</p><p class="text-white">alex.smith.dev@example.com</p></div></div><div class="flex items-center"><div class="w-12 h-12 bg-green-500 bg-opacity-20 rounded-full flex items-center justify-center mr-4"><i class="fas fa-phone text-green-400"></i></div><div><p class="text-gray-400">Phone</p><p class="text-white">+1 (555) 123-4567</p></div></div><div class="flex items-center"><div class="w-12 h-12 bg-purple-500 bg-opacity-20 rounded-full flex items-center justify-center mr-4"><i class="fas fa-map-marker-alt text-purple-400"></i></div><div><p class="text-gray-400">Location</p><p class="text-white">San Francisco, CA</p></div></div></div><div class="mt-8"><h4 class="text-lg font-semibold mb-4">Follow Me</h4><div class="flex space-x-4"><a href="#" class="social-icon"><i class="fab fa-github"></i></a><a href="#" class="social-icon"><i class="fab fa-linkedin"></i></a><a href="#" class="social-icon"><i class="fab fa-twitter"></i></a><a href="#" class="social-icon"><i class="fab fa-instagram"></i></a><a href="#" class="social-icon"><i class="fab fa-dribbble"></i></a></div></div></div></div><div class="w-full md:w-1/2 px-4"><div class="glass-card gradient-border p-8 h-full reveal"><h3 class="text-2xl font-bold mb-6">Send Message</h3><form id="contact-form" class="space-y-6"><div><input type="text" name="name" placeholder="Your Name" required></div><div><input type="email" name="email" placeholder="Your Email" required></div><div><input type="text" name="subject" placeholder="Subject" required></div><div><textarea name="message" rows="5" placeholder="Your Message" required></textarea></div><button type="submit" class="btn-futuristic w-full bg-blue-600 hover:bg-blue-700 border-blue-600"><i class="fas fa-paper-plane mr-2"></i>Send Message </button></form></div></div></div></div></section><footer class="py-8 bg-black bg-opacity-50 relative"><div class="container mx-auto px-4"><div class="flex flex-col md:flex-row justify-between items-center"><div class="mb-4 md:mb-0"><div class="logo gradient-text text-2xl">ALEX<span class="text-white">DEV</span></div><p class="text-gray-400 mt-2">Building the future, one line of code at a time.</p></div><div class="text-center md:text-right"><p class="text-gray-400">&copy;
+                                                                        2025 Alex Smith. All rights reserved.</p><p class="text-gray-500 text-sm mt-2">Designed with passion and precision</p></div></div></div></footer><script> // Particles.js configuration
+                                    
+                                                                        particlesJS('particles-js', {
+                                                                            particles: {
+                                                                                number: {
+                                                                                    value: 80, density: {
+                                                                                        enable: true, value_area: 800
+                                                                                    }
+                                                                                }
+                                    
+                                                                                ,
+                                                                                color: {
+                                                                                    value: "#0ea5e9"
+                                                                                }
+                                    
+                                                                                ,
+                                                                                shape: {
+                                                                                    type: "circle"
+                                                                                }
+                                    
+                                                                                ,
+                                                                                opacity: {
+                                                                                    value: 0.5, random: false
+                                                                                }
+                                    
+                                                                                ,
+                                                                                size: {
+                                                                                    value: 3, random: true
+                                                                                }
+                                    
+                                                                                ,
+                                                                                line_linked: {
+                                                                                    enable: true,
+                                                                                    distance: 150,
+                                                                                    color: "#0ea5e9",
+                                                                                    opacity: 0.4,
+                                                                                    width: 1
+                                                                                }
+                                    
+                                                                                ,
+                                                                                move: {
+                                                                                    enable: true,
+                                                                                    speed: 6,
+                                                                                    direction: "none",
+                                                                                    random: false,
+                                                                                    straight: false,
+                                                                                    out_mode: "out",
+                                                                                    bounce: false
+                                                                                }
+                                                                            }
+                                    
+                                                                            ,
+                                                                            interactivity: {
+                                    
+                                                                                detect_on: "canvas",
+                                                                                events: {
+                                                                                    onhover: {
+                                                                                        enable: true, mode: "repulse"
+                                                                                    }
+                                    
+                                                                                    ,
+                                                                                    onclick: {
+                                                                                        enable: true, mode: "push"
+                                                                                    }
+                                    
+                                                                                    ,
+                                                                                    resize: true
+                                                                                }
+                                                                            }
+                                    
+                                                                            ,
+                                                                            retina_detect: true
+                                                                        });
+                                    
+                                                                        // Three.js 3D Background
+                                                                        let scene,
+                                                                        camera,
+                                                                        renderer,
+                                                                        geometry,
+                                                                        material,
+                                                                        mesh;
+                                    
+                                                                        function init3D() {
+                                                                            const container=document.getElementById('hero-3d');
+                                    
+                                                                            scene=new THREE.Scene();
+                                                                            camera=new THREE.PerspectiveCamera(75, container.offsetWidth / container.offsetHeight, 0.1, 1000);
+                                    
+                                                                            renderer=new THREE.WebGLRenderer({
+                                                                                alpha: true, antialias: true
+                                                                            });
+                                                                        renderer.setSize(container.offsetWidth, container.offsetHeight);
+                                                                        container.appendChild(renderer.domElement);
+                                    
+                                                                        // Create geometric shapes
+                                                                        const shapes=[];
+                                    
+                                                                        for (let i=0; i < 15; i++) {
+                                                                            const geometries=[ new THREE.BoxGeometry(1, 1, 1),
+                                                                            new THREE.SphereGeometry(0.5, 8, 6),
+                                                                            new THREE.ConeGeometry(0.5, 1, 8),
+                                                                            new THREE.TetrahedronGeometry(0.8)];
+                                    
+                                                                            geometry=geometries[Math.floor(Math.random() * geometries.length)];
+                                    
+                                                                            material=new THREE.MeshBasicMaterial({
+                                                                                color: Math.random() * 0xffffff,
+                                                                                wireframe: true,
+                                                                                transparent: true,
+                                                                                opacity: 0.6
+                                                                            });
+                                                                        mesh=new THREE.Mesh(geometry, material);
+                                    
+                                                                        mesh.position.x=(Math.random() - 0.5) * 20;
+                                                                        mesh.position.y=(Math.random() - 0.5) * 20;
+                                                                        mesh.position.z=(Math.random() - 0.5) * 20;
+                                    
+                                                                        mesh.rotation.x=Math.random() * Math.PI;
+                                                                        mesh.rotation.y=Math.random() * Math.PI;
+                                    
+                                                                        shapes.push(mesh);
+                                                                        scene.add(mesh);
+                                                                        }
+                                    
+                                                                        camera.position.z=15;
+                                    
+                                                                        function animate() {
+                                                                            requestAnimationFrame(animate);
+                                    
+                                                                            shapes.forEach(shape=> {
+                                                                                    shape.rotation.x +=0.01;
+                                                                                    shape.rotation.y +=0.01;
+                                                                                    shape.position.y +=Math.sin(Date.now() * 0.001 + shape.position.x) * 0.01;
+                                                                                });
+                                    
+                                                                            renderer.render(scene, camera);
+                                                                        }
+                                    
+                                                                        animate();
+                                    
+                                                                        // Handle resize
+                                                                        window.addEventListener('resize', ()=> {
+                                                                                camera.aspect=container.offsetWidth / container.offsetHeight;
+                                                                                camera.updateProjectionMatrix();
+                                                                                renderer.setSize(container.offsetWidth, container.offsetHeight);
+                                                                            });
+                                                                        }
+                                    
+                                                                        // Initialize 3D scene
+                                                                        init3D();
+                                    
+                                                                        // GSAP Animations
+                                                                        gsap.registerPlugin(ScrollTrigger);
+                                    
+                                                                        // Reveal animations
+                                                                        gsap.utils.toArray('.reveal').forEach((elem)=> {
+                                    
+                                                                                gsap.fromTo(elem,
+                                                                                    {
+                                                                                    y: 50, opacity: 0
+                                                                                }
+                                    
+                                                                                ,
+                                                                                {
+                                    
+                                                                                y: 0,
+                                                                                opacity: 1,
+                                                                                duration: 1,
+                                                                                ease: "power2.out",
+                                                                                scrollTrigger: {
+                                                                                    trigger: elem,
+                                                                                    start: "top 80%",
+                                                                                    end: "bottom 20%",
+                                                                                    toggleActions: "play none none reverse"
+                                                                                }
+                                                                            });
+                                                                        });
+                                    
+                                                                        // Navbar scroll effect
+                                                                        window.addEventListener('scroll', ()=> {
+                                                                                const navbar=document.querySelector('.navbar');
+                                    
+                                                                                if (window.scrollY > 100) {
+                                                                                    navbar.classList.add('scrolled');
+                                                                                }
+                                    
+                                                                                else {
+                                                                                    navbar.classList.remove('scrolled');
+                                                                                }
+                                                                            });
+                                    
+                                                                        // Typing effect
+                                                                        const text="WELCOME TO MY PORTFOLIO";
+                                                                        const typingElement=document.getElementById('typing-text');
+                                                                        let i=0;
+                                    
+                                                                        function typeWriter() {
+                                                                            if (i < text.length) {
+                                                                                typingElement.innerHTML=text.substring(0, i + 1)+'<span class="typing-cursor">|</span>';
+                                                                                i++;
+                                                                                setTimeout(typeWriter, 100);
+                                                                            }
+                                    
+                                                                            else {
+                                                                                typingElement.innerHTML=text;
+                                                                            }
+                                                                        }
+                                    
+                                                                        setTimeout(typeWriter, 1000);
+                                    
+                                                                        // Mobile menu toggle
+                                                                        const mobileMenuBtn=document.getElementById('mobile-menu-btn');
+                                                                        const mobileMenu=document.getElementById('mobile-menu');
+                                                                        const closeMenuBtn=document.getElementById('close-menu-btn');
+                                    
+                                                                        mobileMenuBtn.addEventListener('click', ()=> {
+                                                                                mobileMenu.classList.remove('hidden');
+                                    
+                                                                                gsap.fromTo(mobileMenu, {
+                                                                                    opacity: 0
+                                                                                }
+                                    
+                                                                                , {
+                                                                                opacity: 1, duration: 0.3
+                                                                            });
+                                                                        });
+                                    
+                                                                        closeMenuBtn.addEventListener('click', ()=> {
+                                                                                gsap.to(mobileMenu, {
+                                                                                    opacity: 0,
+                                                                                    duration: 0.3,
+                                                                                    onComplete: ()=> mobileMenu.classList.add('hidden')
+                                                                                });
+                                                                        });
+                                    
+                                                                        // Close mobile menu when clicking on links
+                                                                        document.querySelectorAll('.mobile-nav-link').forEach(link=> {
+                                                                                link.addEventListener('click', ()=> {
+                                                                                        gsap.to(mobileMenu, {
+                                                                                            opacity: 0,
+                                                                                            duration: 0.3,
+                                                                                            onComplete: ()=> mobileMenu.classList.add('hidden')
+                                                                                        });
+                                                                                });
+                                                                        });
+                                    
+                                                                        // Smooth scrolling for navigation links
+                                                                        document.querySelectorAll('a[href^="#"]').forEach(anchor=> {
+                                                                                anchor.addEventListener('click', function (e) {
+                                                                                        e.preventDefault();
+                                                                                        const target=document.querySelector(this.getAttribute('href'));
+                                    
+                                                                                        if (target) {
+                                                                                            target.scrollIntoView({
+                                                                                                behavior: 'smooth',
+                                                                                                block: 'start'
+                                                                                            });
+                                                                                    }
+                                                                                });
+                                                                        });
+                                    
+                                                                        // Contact form submission
+                                                                        document.getElementById('contact-form').addEventListener('submit', function(e) {
+                                                                                e.preventDefault();
+                                    
+                                                                                // Simple form validation and submission simulation
+                                                                                const formData=new FormData(this);
+                                                                                const submitBtn=this.querySelector('button[type="submit"]');
+                                    
+                                                                                submitBtn.innerHTML='<i class="fas fa-spinner fa-spin mr-2"></i>Sending...';
+                                                                                submitBtn.disabled=true;
+                                    
+                                                                                setTimeout(()=> {
+                                                                                        alert('Thank you for your message! I\'ll get back to you soon.');
+                                                                                        this.reset();
+                                                                                        submitBtn.innerHTML='<i class="fas fa-paper-plane mr-2"></i>Send Message';
+                                                                                        submitBtn.disabled=false;
+                                                                                    }
+                                    
+                                                                                    , 2000);
+                                                                            });
+                                    
+                                                                        // Add floating animation to skill pills
+                                                                        document.querySelectorAll('.skill-pill').forEach((pill, index)=> {
+                                                                                gsap.to(pill, {
+                                                                                    y: Math.sin(index) * 10,
+                                                                                    duration: 2 + Math.random(),
+                                                                                    repeat: -1,
+                                                                                    yoyo: true,
+                                                                                    ease: "power1.inOut",
+                                                                                    delay: index * 0.1
+                                                                                });
+                                                                        });
+                                    
+                                                                        // Parallax effect for glow elements
+                                                                        window.addEventListener('scroll', ()=> {
+                                                                                const scrolled=window.pageYOffset;
+                                                                                const parallaxElements=document.querySelectorAll('.glow');
+                                    
+                                                                                parallaxElements.forEach((element, index)=> {
+                                                                                        const speed=0.5 + (index * 0.1);
+                                                                                        const yPos=-(scrolled * speed);
+                                    
+                                                                                        element.style.transform=`translate3d(0, $ {
+                                                                                                yPos
+                                                                                            }
+                                    
+                                                                                            px, 0)`;
+                                                                                    });
+                                                                            });
+                                                                        </script></body></html>
