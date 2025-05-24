@@ -1,14 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Futuristic Portfolio</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700&family=Rajdhani:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
@@ -35,15 +38,20 @@
         }
 
         body {
-            font-family: 'Rajdhani', sans-serif;
+            font-family: "Rajdhani", sans-serif;
             background-color: var(--darker);
             color: var(--light);
             overflow-x: hidden;
             line-height: 1.6;
         }
 
-        h1, h2, h3, h4, h5, h6 {
-            font-family: 'Orbitron', sans-serif;
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: "Orbitron", sans-serif;
         }
 
         #particles-js {
@@ -95,7 +103,7 @@
         }
 
         .gradient-border::before {
-            content: '';
+            content: "";
             position: absolute;
             top: -2px;
             left: -2px;
@@ -112,9 +120,11 @@
             0% {
                 background-position: 0% 50%;
             }
+
             50% {
                 background-position: 100% 50%;
             }
+
             100% {
                 background-position: 0% 50%;
             }
@@ -129,7 +139,7 @@
         }
 
         .progress-bar::after {
-            content: '';
+            content: "";
             position: absolute;
             top: 0;
             left: -50%;
@@ -143,6 +153,7 @@
             0% {
                 transform: translateX(-100%);
             }
+
             100% {
                 transform: translateX(300%);
             }
@@ -179,7 +190,7 @@
         }
 
         .nav-link::after {
-            content: '';
+            content: "";
             position: absolute;
             bottom: -5px;
             left: 0;
@@ -228,7 +239,7 @@
             border: 1px solid var(--primary);
             padding: 12px 30px;
             border-radius: 50px;
-            font-family: 'Orbitron', sans-serif;
+            font-family: "Orbitron", sans-serif;
             letter-spacing: 1px;
             position: relative;
             overflow: hidden;
@@ -246,7 +257,7 @@
         }
 
         .btn-futuristic::before {
-            content: '';
+            content: "";
             position: absolute;
             top: 0;
             left: -100%;
@@ -279,7 +290,8 @@
             transform: rotateY(180deg);
         }
 
-        .project-front, .project-back {
+        .project-front,
+        .project-back {
             position: absolute;
             width: 100%;
             height: 100%;
@@ -328,12 +340,19 @@
         }
 
         @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% {
+
+            0%,
+            20%,
+            50%,
+            80%,
+            100% {
                 transform: translateY(0) translateX(-50%);
             }
+
             40% {
                 transform: translateY(-20px) translateX(-50%);
             }
+
             60% {
                 transform: translateY(-10px) translateX(-50%);
             }
@@ -403,20 +422,24 @@
         }
 
         .typing-effect::after {
-            content: '|';
+            content: "|";
             animation: blink 1s infinite;
         }
 
         @keyframes blink {
-            0%, 100% {
+
+            0%,
+            100% {
                 opacity: 1;
             }
+
             50% {
                 opacity: 0;
             }
         }
 
-        input, textarea {
+        input,
+        textarea {
             background: rgba(255, 255, 255, 0.05);
             backdrop-filter: blur(8px);
             border: 1px solid rgba(255, 255, 255, 0.1);
@@ -427,13 +450,15 @@
             transition: all 0.3s ease;
         }
 
-        input:focus, textarea:focus {
+        input:focus,
+        textarea:focus {
             outline: none;
             border-color: var(--primary);
             box-shadow: 0 0 0 2px rgba(14, 165, 233, 0.3);
         }
 
-        input::placeholder, textarea::placeholder {
+        input::placeholder,
+        textarea::placeholder {
             color: rgba(255, 255, 255, 0.5);
         }
 
@@ -441,6 +466,36 @@
             position: relative;
             z-index: 1;
         }
+
+        .button-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 10px;
+            max-width: 400px; /* Optional: limit width */
+            margin: 0 auto;    /* Center the button row */
+        }
+
+        .btn {
+            padding: 10px 20px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .download-btn {
+            background-color: #007bff;
+            color: #fff;
+        }
+
+        .hire-btn {
+            background-color: #28a745;
+            color: #fff;
+        }
+
 
         /* Mobile Menu Styles */
         #mobile-menu {
@@ -463,16 +518,16 @@
                 opacity: 0.3;
                 width: 100%;
             }
-            
+
             .navbar {
                 width: 90%;
                 padding: 10px 20px;
             }
-            
+
             h1 {
                 font-size: 2.5rem !important;
             }
-            
+
             h2 {
                 font-size: 2rem !important;
             }
@@ -503,15 +558,16 @@
         }
     </style>
 </head>
+
 <body>
     <div id="particles-js"></div>
-    
+
     <div class="glow glow-1"></div>
     <div class="glow glow-2"></div>
     <div class="glow glow-3"></div>
-    
+
     <nav class="navbar glass flex items-center justify-between">
-        <div class="logo gradient-text">ALEX<span class="text-white">DEV</span></div>
+        <div class="logo gradient-text">SETH<span class="text-white">DEV</span></div>
         <div class="hidden md:flex">
             <a href="#home" class="nav-link">Home</a>
             <a href="#about" class="nav-link">About</a>
@@ -525,8 +581,9 @@
             </button>
         </div>
     </nav>
-    
-    <div id="mobile-menu" class="fixed top-0 left-0 w-full h-full z-50 hidden flex flex-col items-center justify-center">
+
+    <div id="mobile-menu"
+        class="fixed top-0 left-0 w-full h-full z-50 hidden flex flex-col items-center justify-center">
         <button id="close-menu-btn" class="absolute top-5 right-5 text-white text-2xl">
             <i class="fas fa-times"></i>
         </button>
@@ -536,19 +593,26 @@
         <a href="#projects" class="mobile-nav-link text-white text-2xl my-3">Projects</a>
         <a href="#contact" class="mobile-nav-link text-white text-2xl my-3">Contact</a>
     </div>
-    
+
     <section id="home" class="relative min-h-screen flex items-center">
         <div id="hero-3d" class="hero-3d"></div>
         <div class="container mx-auto px-4">
             <div class="hero-content">
                 <div class="w-full md:w-2/3">
                     <p class="text-blue-400 mb-2 tracking-wider reveal" id="typing-text">WELCOME TO MY PORTFOLIO</p>
-                    <h1 class="text-5xl md:text-7xl font-bold mb-4 reveal">I'm <span class="gradient-text">Alex Smith</span></h1>
-                    <h2 class="text-3xl md:text-4xl mb-6 text-gray-300 reveal">Full Stack Developer & UI/UX Designer</h2>
-                    <p class="text-gray-400 text-lg mb-8 max-w-lg reveal">Creating cutting-edge digital experiences with a focus on performance, aesthetics, and user-centered design.</p>
+                    <h1 class="text-5xl md:text-7xl font-bold mb-4 reveal">I'm <span class="gradient-text">Subhajit 
+                            Seth</span></h1>
+                    <h2 class="text-3xl md:text-4xl mb-6 text-gray-300 reveal">Web Developer 
+                    </h2>
+                    <p class="text-gray-400 text-lg mb-8 max-w-lg reveal">Creating cutting-edge digital experiences with
+                        a focus on performance, aesthetics, and user-centered design.</p>
                     <div class="flex flex-wrap gap-4 reveal">
-                        <a href="#projects" class="btn-futuristic">View My Work</a>
-                        <a href="#contact" class="btn-futuristic bg-transparent">Get In Touch</a>
+                        <a href="#projects" class="btn-futuristic">
+                            <i class="fas fa-eye mr-2"></i>View My Work
+                        </a>
+                        <a href="#contact" class="btn-futuristic bg-transparent">
+                            <i class="fas fa-envelope mr-2"></i>Get In Touch
+                        </a>
                     </div>
                 </div>
             </div>
@@ -564,21 +628,42 @@
                 <h2 class="text-4xl font-bold mb-4 reveal"><span class="gradient-text">About</span> Me</h2>
                 <div class="w-24 h-1 bg-blue-500 mx-auto rounded-full mb-8 reveal"></div>
             </div>
-            
+
             <div class="flex flex-wrap -mx-4">
                 <div class="w-full md:w-1/2 px-4 mb-8 md:mb-0">
                     <div class="glass-card p-8 h-full reveal">
                         <h3 class="text-2xl font-bold mb-4">My Journey</h3>
                         <p class="text-gray-300 mb-6">
-                            I'm a passionate tech enthusiast with over 5 years of experience in web and mobile app development.
-                            My journey started with a fascination for code and design, which has evolved into a career creating
-                            digital solutions that solve real-world problems.
+                            I'm a passionate tech enthusiast with over 5 years of experience in web 
+                            development. My journey started with a fascination for code and design, which has evolved
+                            into a career creating digital
+                            solutions that solve real-world problems.
                         </p>
                         <p class="text-gray-300">
-                            I specialize in building modern, responsive applications using the latest technologies.
-                            My approach combines technical expertise with creative thinking to deliver products
-                            that not only function flawlessly but also provide exceptional user experiences.
+                            I specialize in building modern, responsive applications using CodeIgniter and Laravel. I also have strong expertise in
+                            REST API development, core PHP, MySQL, JavaScript (jQuery, Ajax), and front-end technologies such as Bootstrap, CSS3,
+                            and HTML5, utilizing the latest technologies.My
+                            approach combines technical expertise with creative thinking to deliver products that not
+                            only function flawlessly
+                            but also provide exceptional user experiences.
                         </p>
+                        <!-- <div class="container">
+                            <div class="row mt-5 d-flex">
+                                <div class="align-left">
+                                    <a href="#" onclick="downloadCV()" class="btn-futuristic btn-download">
+                                    <i class="fas fa-download mr-2"></i>Download CV</a>
+                                </div>
+                                <div class="align-right">
+                                    <a href="#contact" class="btn-futuristic btn-hire">
+                                    <i class="fas fa-handshake mr-2"></i>Hire Me</a>
+                                </div>
+                            </div>
+                        </div> -->
+                        <div class="mt-5">
+                            <a onclick="downloadFile()" class="btn-futuristic btn-download" download>
+                                <i class="fas fa-download mr-2"></i>
+                                Download CV</a>
+                        </div>
                     </div>
                 </div>
                 <div class="w-full md:w-1/2 px-4">
@@ -589,28 +674,31 @@
                                 <i class="fas fa-code text-blue-400 mr-3 text-xl"></i>
                                 <h4 class="text-xl font-semibold">Web Development</h4>
                             </div>
-                            <p class="text-gray-300 pl-8">Creating responsive, performant websites and web applications.</p>
-                        </div>
-                        <div class="mb-6">
-                            <div class="flex items-center mb-2">
-                                <i class="fas fa-mobile-alt text-purple-400 mr-3 text-xl"></i>
-                                <h4 class="text-xl font-semibold">Mobile App Development</h4>
-                            </div>
-                            <p class="text-gray-300 pl-8">Building native and cross-platform mobile applications.</p>
+                            <p class="text-gray-300 pl-8">Creating responsive, performant websites and web applications.
+                            </p>
                         </div>
                         <div class="mb-6">
                             <div class="flex items-center mb-2">
                                 <i class="fas fa-pencil-ruler text-red-400 mr-3 text-xl"></i>
-                                <h4 class="text-xl font-semibold">UI/UX Design</h4>
+                                <h4 class="text-xl font-semibold">API Integration</h4>
                             </div>
-                            <p class="text-gray-300 pl-8">Designing intuitive interfaces and seamless user experiences.</p>
+                            <p class="text-gray-300 pl-8">
+                                Building secure, efficient APIs to connect apps and streamline data flow.
+                            </p>
                         </div>
-                        <div>
+                        <div  class="mb-6">
                             <div class="flex items-center mb-2">
                                 <i class="fas fa-server text-green-400 mr-3 text-xl"></i>
                                 <h4 class="text-xl font-semibold">Backend Development</h4>
                             </div>
                             <p class="text-gray-300 pl-8">Creating robust server-side applications and APIs.</p>
+                        </div>
+                        <div>
+                            <div class="flex items-center mb-2">
+                                <i class="fas fa-mobile-alt text-purple-400 mr-3 text-xl"></i>
+                                <h4 class="text-xl font-semibold">Frontend Development</h4>
+                            </div>
+                            <p class="text-gray-300 pl-8">Building native and cross-platform mobile applications.</p>
                         </div>
                     </div>
                 </div>
@@ -624,92 +712,92 @@
                 <h2 class="text-4xl font-bold mb-4 reveal"><span class="gradient-text">My</span> Skills</h2>
                 <div class="w-24 h-1 bg-purple-500 mx-auto rounded-full mb-8 reveal"></div>
             </div>
-            
+
             <div class="flex flex-wrap -mx-4">
                 <div class="w-full md:w-1/2 px-4 mb-8">
                     <div class="glass-card p-8 h-full reveal">
                         <h3 class="text-2xl font-bold mb-6">Technical Skills</h3>
-                        
+
                         <div class="mb-6">
                             <div class="flex justify-between mb-2">
-                                <span>JavaScript</span>
-                                <span>95%</span>
-                            </div>
-                            <div class="w-full bg-gray-700 rounded-full h-2">
-                                <div class="progress-bar" style="width: 95%"></div>
-                            </div>
-                        </div>
-                        
-                        <div class="mb-6">
-                            <div class="flex justify-between mb-2">
-                                <span>React</span>
-                                <span>90%</span>
-                            </div>
-                            <div class="w-full bg-gray-700 rounded-full h-2">
-                                <div class="progress-bar" style="width: 90%"></div>
-                            </div>
-                        </div>
-                        
-                        <div class="mb-6">
-                            <div class="flex justify-between mb-2">
-                                <span>Node.js</span>
+                                <span>Laravel</span>
                                 <span>85%</span>
                             </div>
                             <div class="w-full bg-gray-700 rounded-full h-2">
-                                <div class="progress-bar" style="width: 85%"></div>
+                                <div class="progress-bar" style="width: 85%;"></div>
                             </div>
                         </div>
-                        
+
                         <div class="mb-6">
                             <div class="flex justify-between mb-2">
-                                <span>Python</span>
+                                <span>Codeigniter</span>
                                 <span>80%</span>
                             </div>
                             <div class="w-full bg-gray-700 rounded-full h-2">
-                                <div class="progress-bar" style="width: 80%"></div>
+                                <div class="progress-bar" style="width: 90%;"></div>
                             </div>
                         </div>
-                        
+
+                        <div class="mb-6">
+                            <div class="flex justify-between mb-2">
+                                <span>PHP</span>
+                                <span>85%</span>
+                            </div>
+                            <div class="w-full bg-gray-700 rounded-full h-2">
+                                <div class="progress-bar" style="width: 85%;"></div>
+                            </div>
+                        </div>
+
+                        <div class="mb-6">
+                            <div class="flex justify-between mb-2">
+                                <span>JavaScript</span>
+                                <span>75%</span>
+                            </div>
+                            <div class="w-full bg-gray-700 rounded-full h-2">
+                                <div class="progress-bar" style="width: 75%;"></div>
+                            </div>
+                        </div>
+
                         <div>
                             <div class="flex justify-between mb-2">
                                 <span>UI/UX Design</span>
                                 <span>85%</span>
                             </div>
                             <div class="w-full bg-gray-700 rounded-full h-2">
-                                <div class="progress-bar" style="width: 85%"></div>
+                                <div class="progress-bar" style="width: 85%;"></div>
                             </div>
                         </div>
                     </div>
                 </div>
-                
-                <div class="w-full md:w-1/2 px-4">
+
+                <div class="w-full md:w-1/2 px-4 mb-8">
                     <div class="glass-card p-8 h-full reveal">
                         <h3 class="text-2xl font-bold mb-6">Technologies & Tools</h3>
-                        
+
                         <div class="flex flex-wrap">
                             <span class="skill-pill">JavaScript</span>
-                            <span class="skill-pill">TypeScript</span>
-                            <span class="skill-pill">React</span>
-                            <span class="skill-pill">Vue.js</span>
-                            <span class="skill-pill">Angular</span>
-                            <span class="skill-pill">Node.js</span>
-                            <span class="skill-pill">Express</span>
-                            <span class="skill-pill">MongoDB</span>
-                            <span class="skill-pill">PostgreSQL</span>
-                            <span class="skill-pill">GraphQL</span>
-                            <span class="skill-pill">Docker</span>
-                            <span class="skill-pill">AWS</span>
-                            <span class="skill-pill">Firebase</span>
+                            <span class="skill-pill">PHP</span>
+                            <span class="skill-pill">Codeigniter</span>
+                            <span class="skill-pill">REST API</span>
+                            <span class="skill-pill">Laravel</span>
+                            <span class="skill-pill">Mysql</span>
+                            <span class="skill-pill">Bootstrap</span>
+                            <span class="skill-pill">AJAX</span>
+                            <span class="skill-pill">jQuery</span>
+                            <span class="skill-pill">Css</span>
+                            <span class="skill-pill">Html</span>
+                            <!-- <span class="skill-pill">AWS</span>
+                            <span class="skill-pill">Firebase</span> -->
                             <span class="skill-pill">Git</span>
                             <span class="skill-pill">GitHub</span>
                             <span class="skill-pill">Figma</span>
-                            <span class="skill-pill">Adobe XD</span>
+                            <!-- <span class="skill-pill">Adobe XD</span>
                             <span class="skill-pill">Tailwind CSS</span>
                             <span class="skill-pill">SASS</span>
                             <span class="skill-pill">Jest</span>
                             <span class="skill-pill">Cypress</span>
                             <span class="skill-pill">WebGL</span>
-                            <span class="skill-pill">Three.js</span>
+                            <span class="skill-pill">Three.js</span> -->
                         </div>
                     </div>
                 </div>
@@ -722,14 +810,16 @@
             <div class="text-center mb-16">
                 <h2 class="text-4xl font-bold mb-4 reveal"><span class="gradient-text">My</span> Projects</h2>
                 <div class="w-24 h-1 bg-blue-500 mx-auto rounded-full mb-8 reveal"></div>
-                <p class="text-gray-300 max-w-2xl mx-auto reveal">A selection of my recent work that showcases my skills and expertise</p>
+                <p class="text-gray-300 max-w-2xl mx-auto reveal">A selection of my recent work that showcases my skills
+                    and expertise</p>
             </div>
-            
+
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <div class="project-card reveal">
                     <div class="project-card-inner">
                         <div class="project-front glass-card">
-                            <div class="h-full bg-gradient-to-br from-blue-900 to-purple-900 flex items-center justify-center">
+                            <div
+                                class="h-full bg-gradient-to-br from-blue-900 to-purple-900 flex items-center justify-center">
                                 <div class="text-center p-6">
                                     <i class="fas fa-globe text-4xl mb-4 text-blue-400"></i>
                                     <h3 class="text-2xl font-bold">AI Assistant App</h3>
@@ -739,354 +829,620 @@
                         </div>
                         <div class="project-back glass-card">
                             <h3 class="text-xl font-bold mb-4">AI Assistant App</h3>
-                            <p class="text-gray-300 mb-4">A modern AI assistant application that uses natural language processing to help users with everyday tasks.</p>
+                            <p class="text-gray-300 mb-4">A modern AI assistant application that uses natural language
+                                processing to help users with everyday tasks.</p>
                             <p class="text-sm text-gray-400 mb-4">React Native, TensorFlow.js, Node.js, Express</p>
                             <div class="mt-auto flex justify-end">
-                                <a href="#" class="text-blue-400 hover:text-blue-300 mr-4">
-                                    <i class="fas fa-external-link-alt"></i> View Project
-                                </a>
-                                <a href="#" class="text-blue-400 hover:text-blue-300">
-                                    <i class="fab fa-github"></i> Code
+                                <a href="#" class="text-blue-400 hover:text-blue-300 mr-4"> <i
+                                        class="fas fa-external-link-alt"></i> View Project </a>
+                                <a href="#" class="text-blue-400 hover:text-blue-300"> <i class="fab fa-github"></i>
+                                    Code </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card reveal">
+                    <div class="project-card-inner">
+                        <div class="project-front glass-card">
+                            <div
+                                class="h-full bg-gradient-to-br from-green-900 to-teal-900 flex items-center justify-center">
+                                <div class="text-center p-6">
+                                    <i class="fas fa-shopping-cart text-4xl mb-4 text-green-400"></i>
+                                    <h3 class="text-2xl font-bold">E-Commerce Platform</h3>
+                                    <p class="text-gray-300 mt-2">Full Stack Web Application</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-back glass-card">
+                            <h3 class="text-xl font-bold mb-4">E-Commerce Platform</h3>
+                            <p class="text-gray-300 mb-4">A complete online shopping platform with payment integration,
+                                inventory management, and real-time analytics.</p>
+                            <p class="text-sm text-gray-400 mb-4">React, Redux, Node.js, MongoDB, Stripe API</p>
+                            <div class="mt-auto flex justify-end">
+                                <a href="#" class="text-green-400 hover:text-green-300 mr-4"><i
+                                        class="fas fa-external-link-alt"></i>View Project </a>
+                                <a href="#" class="text-green-400 hover:text-green-300"><i
+                                        class="fab fa-github"></i>Code </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card reveal">
+                    <div class="project-card-inner">
+                        <div class="project-front glass-card">
+                            <div
+                                class="h-full bg-gradient-to-br from-red-900 to-pink-900 flex items-center justify-center">
+                                <div class="text-center p-6">
+                                    <i class="fas fa-chart-line text-4xl mb-4 text-red-400"></i>
+                                    <h3 class="text-2xl font-bold">Analytics Dashboard</h3>
+                                    <p class="text-gray-300 mt-2">Data Visualization Platform</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-back glass-card">
+                            <h3 class="text-xl font-bold mb-4">Analytics Dashboard</h3>
+                            <p class="text-gray-300 mb-4">Interactive data visualization dashboard with real-time
+                                charts, graphs, and business intelligence features.</p>
+                            <p class="text-sm text-gray-400 mb-4">Vue.js, D3.js, Python, FastAPI, PostgreSQL</p>
+                            <div class="mt-auto flex justify-end">
+                                <a href="#" class="text-red-400 hover:text-red-300 mr-4"><i
+                                        class="fas fa-external-link-alt"></i>View Project </a><a href="#"
+                                    class="text-red-400 hover:text-red-300"><i class="fab fa-github"></i>Code </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card reveal">
+                    <div class="project-card-inner">
+                        <div class="project-front glass-card">
+                            <div
+                                class="h-full bg-gradient-to-br from-yellow-900 to-orange-900 flex items-center justify-center">
+                                <div class="text-center p-6">
+                                    <i class="fas fa-gamepad text-4xl mb-4 text-yellow-400"></i>
+                                    <h3 class="text-2xl font-bold">3D Game Engine</h3>
+                                    <p class="text-gray-300 mt-2">WebGL Gaming Platform</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-back glass-card">
+                            <h3 class="text-xl font-bold mb-4">3D Game Engine</h3>
+                            <p class="text-gray-300 mb-4">Browser-based 3D game engine with physics simulation, lighting
+                                effects, and cross-platform compatibility.</p>
+                            <p class="text-sm text-gray-400 mb-4">Three.js, WebGL, TypeScript, Cannon.js</p>
+                            <div class="mt-auto flex justify-end">
+                                <a href="#" class="text-yellow-400 hover:text-yellow-300 mr-4"><i
+                                        class="fas fa-external-link-alt"></i>View Project </a>
+                                <a href="#" class="text-yellow-400 hover:text-yellow-300"><i
+                                        class="fab fa-github"></i>Code </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card reveal">
+                    <div class="project-card-inner">
+                        <div class="project-front glass-card">
+                            <div
+                                class="h-full bg-gradient-to-br from-indigo-900 to-blue-900 flex items-center justify-center">
+                                <div class="text-center p-6">
+                                    <i class="fas fa-users text-4xl mb-4 text-indigo-400"></i>
+                                    <h3 class="text-2xl font-bold">Social Media App</h3>
+                                    <p class="text-gray-300 mt-2">Cross-Platform Mobile App</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-back glass-card">
+                            <h3 class="text-xl font-bold mb-4">Social Media App</h3>
+                            <p class="text-gray-300 mb-4">Feature-rich social networking application with real-time
+                                messaging, content sharing, and community features.</p>
+                            <p class="text-sm text-gray-400 mb-4">React Native, Socket.io, Node.js, Redis</p>
+                            <div class="mt-auto flex justify-end">
+                                <a href="#" class="text-indigo-400 hover:text-indigo-300 mr-4"><i
+                                        class="fas fa-external-link-alt"></i>View Project </a>
+                                <a href="#" class="text-indigo-400 hover:text-indigo-300"><i
+                                        class="fab fa-github"></i>Code </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card reveal">
+                    <div class="project-card-inner">
+                        <div class="project-front glass-card">
+                            <div
+                                class="h-full bg-gradient-to-br from-purple-900 to-pink-900 flex items-center justify-center">
+                                <div class="text-center p-6">
+                                    <i class="fas fa-brain text-4xl mb-4 text-purple-400"></i>
+                                    <h3 class="text-2xl font-bold">ML Prediction Tool</h3>
+                                    <p class="text-gray-300 mt-2">AI/ML Web Application</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-back glass-card">
+                            <h3 class="text-xl font-bold mb-4">ML Prediction Tool</h3>
+                            <p class="text-gray-300 mb-4">Machine learning-powered prediction tool with data
+                                preprocessing, model training, and visualization capabilities.</p>
+                            <p class="text-sm text-gray-400 mb-4">Python, TensorFlow, Flask, React, Pandas</p>
+                            <div class="mt-auto flex justify-end">
+                                <a href="#" class="text-purple-400 hover:text-purple-300 mr-4"><i
+                                        class="fas fa-external-link-alt"></i>View Project </a>
+                                <a href="#" class="text-purple-400 hover:text-purple-300"><i
+                                        class="fab fa-github"></i>Code </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="contact" class="py-20 relative">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-4 reveal"><span class="gradient-text">Get In</span>Touch</h2>
+                <div class="w-24 h-1 bg-green-500 mx-auto rounded-full mb-8 reveal"></div>
+                <p class="text-gray-300 max-w-2xl mx-auto reveal">Have a project in mind? Let's collaborate and create
+                    something amazing together!</p>
+            </div>
+            <div class="flex flex-wrap -mx-4">
+                <div class="w-full md:w-1/2 px-4 mb-8 md:mb-0">
+                    <div class="glass-card p-8 h-full reveal">
+                        <h3 class="text-2xl font-bold mb-6">Let's Connect</h3>
+                        <div class="space-y-6">
+                            <div class="flex items-center">
+                                <div
+                                    class="w-12 h-12 bg-blue-500 bg-opacity-20 rounded-full flex items-center justify-center mr-4">
+                                    <i class="fas fa-envelope text-blue-400"></i>
+                                </div>
+                                <div>
+                                    <p class="text-gray-400">Email</p>
+                                    <p class="text-white">subhajitseth1998@gmail.com</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center">
+                                <div
+                                    class="w-12 h-12 bg-green-500 bg-opacity-20 rounded-full flex items-center justify-center mr-4">
+                                    <i class="fas fa-phone text-green-400"></i>
+                                </div>
+                                <div>
+                                    <p class="text-gray-400">Phone</p>
+                                    <p class="text-white">+91 6295369020</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center">
+                                <div
+                                    class="w-12 h-12 bg-purple-500 bg-opacity-20 rounded-full flex items-center justify-center mr-4">
+                                    <i class="fas fa-map-marker-alt text-purple-400"></i>
+                                </div>
+                                <div>
+                                    <p class="text-gray-400">Location</p>
+                                    <p class="text-white">West Bengal, IN</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mt-8">
+                            <h4 class="text-lg font-semibold mb-4">Follow Me</h4>
+                            <div class="flex space-x-4">
+                                <a href="https://github.com/Subhajit-Seth" class="social-icon"><i class="fab fa-github"></i></a><a href="https://www.linkedin.com/in/subhajit-seth"
+                                    class="social-icon"><i class="fab fa-linkedin"></i></a><a href="https://x.com/Subhajit_Sy8"class="social-icon"><i class="fab fa-x"></i></a>
+                                <a href="https://www.facebook.com/subhajit.seth.2025" class="social-icon"><i class="fab fa-facebook"></i></a><a href="https://www.instagram.com/subhajit_sy8/"class="social-icon"><i class="fab fa-instagram"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="w-full md:w-1/2 px-4">
+                    <div class="glass-card gradient-border p-8 h-full reveal">
+                        <h3 class="text-2xl font-bold mb-6">Send Message</h3>
+                        <form id="contact-form" class="space-y-6">
+                            <div><input type="text" name="name" placeholder="Your Name" required /></div>
+                            <div><input type="email" name="email" placeholder="Your Email" required /></div>
+                            <div><textarea name="message" rows="5" placeholder="Your Message" required></textarea></div>
+                            <button type="submit"
+                                class="btn-futuristic w-full bg-blue-600 hover:bg-blue-700 border-blue-600"><i
+                                    class="fas fa-paper-plane mr-2"></i>Send Message</button>
+                        </form>
+                        <p id="response-message"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer class="py-8 bg-black bg-opacity-50 relative">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-4 md:mb-0">
+                    <div class="logo gradient-text text-2xl">SETH<span class="text-white">DEV</span></div>
+                    <p class="text-gray-400 mt-2">Building the future, one line of code at a time.</p>
+                </div>
+                <div class="text-center md:text-right">
+                    <p class="text-gray-400">Copyright &copy; <span id="year"></span> <span id="site-name"></span> All rights reserved.</p>
+                    <p class="text-gray-500 text-sm mt-2">Designed with passion and precision</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script>
 
-                                                                        </a></div></div></div></div><div class="project-card reveal"><div class="project-card-inner"><div class="project-front glass-card"><div class="h-full bg-gradient-to-br from-green-900 to-teal-900 flex items-center justify-center"><div class="text-center p-6"><i class="fas fa-shopping-cart text-4xl mb-4 text-green-400"></i><h3 class="text-2xl font-bold">E-Commerce Platform</h3><p class="text-gray-300 mt-2">Full Stack Web Application</p></div></div></div><div class="project-back glass-card"><h3 class="text-xl font-bold mb-4">E-Commerce Platform</h3><p class="text-gray-300 mb-4">A complete online shopping platform with payment integration,
-                                                                        inventory management,
-                                                                        and real-time analytics.</p><p class="text-sm text-gray-400 mb-4">React,
-                                                                        Redux,
-                                                                        Node.js,
-                                                                        MongoDB,
-                                                                        Stripe API</p><div class="mt-auto flex justify-end"><a href="#" class="text-green-400 hover:text-green-300 mr-4"><i class="fas fa-external-link-alt"></i>View Project </a><a href="#" class="text-green-400 hover:text-green-300"><i class="fab fa-github"></i>Code </a></div></div></div></div><div class="project-card reveal"><div class="project-card-inner"><div class="project-front glass-card"><div class="h-full bg-gradient-to-br from-red-900 to-pink-900 flex items-center justify-center"><div class="text-center p-6"><i class="fas fa-chart-line text-4xl mb-4 text-red-400"></i><h3 class="text-2xl font-bold">Analytics Dashboard</h3><p class="text-gray-300 mt-2">Data Visualization Platform</p></div></div></div><div class="project-back glass-card"><h3 class="text-xl font-bold mb-4">Analytics Dashboard</h3><p class="text-gray-300 mb-4">Interactive data visualization dashboard with real-time charts,
-                                                                        graphs,
-                                                                        and business intelligence features.</p><p class="text-sm text-gray-400 mb-4">Vue.js,
-                                                                        D3.js,
-                                                                        Python,
-                                                                        FastAPI,
-                                                                        PostgreSQL</p><div class="mt-auto flex justify-end"><a href="#" class="text-red-400 hover:text-red-300 mr-4"><i class="fas fa-external-link-alt"></i>View Project </a><a href="#" class="text-red-400 hover:text-red-300"><i class="fab fa-github"></i>Code </a></div></div></div></div><div class="project-card reveal"><div class="project-card-inner"><div class="project-front glass-card"><div class="h-full bg-gradient-to-br from-yellow-900 to-orange-900 flex items-center justify-center"><div class="text-center p-6"><i class="fas fa-gamepad text-4xl mb-4 text-yellow-400"></i><h3 class="text-2xl font-bold">3D Game Engine</h3><p class="text-gray-300 mt-2">WebGL Gaming Platform</p></div></div></div><div class="project-back glass-card"><h3 class="text-xl font-bold mb-4">3D Game Engine</h3><p class="text-gray-300 mb-4">Browser-based 3D game engine with physics simulation,
-                                                                        lighting effects,
-                                                                        and cross-platform compatibility.</p><p class="text-sm text-gray-400 mb-4">Three.js,
-                                                                        WebGL,
-                                                                        TypeScript,
-                                                                        Cannon.js</p><div class="mt-auto flex justify-end"><a href="#" class="text-yellow-400 hover:text-yellow-300 mr-4"><i class="fas fa-external-link-alt"></i>View Project </a><a href="#" class="text-yellow-400 hover:text-yellow-300"><i class="fab fa-github"></i>Code </a></div></div></div></div><div class="project-card reveal"><div class="project-card-inner"><div class="project-front glass-card"><div class="h-full bg-gradient-to-br from-indigo-900 to-blue-900 flex items-center justify-center"><div class="text-center p-6"><i class="fas fa-users text-4xl mb-4 text-indigo-400"></i><h3 class="text-2xl font-bold">Social Media App</h3><p class="text-gray-300 mt-2">Cross-Platform Mobile App</p></div></div></div><div class="project-back glass-card"><h3 class="text-xl font-bold mb-4">Social Media App</h3><p class="text-gray-300 mb-4">Feature-rich social networking application with real-time messaging,
-                                                                        content sharing,
-                                                                        and community features.</p><p class="text-sm text-gray-400 mb-4">React Native,
-                                                                        Socket.io,
-                                                                        Node.js,
-                                                                        Redis</p><div class="mt-auto flex justify-end"><a href="#" class="text-indigo-400 hover:text-indigo-300 mr-4"><i class="fas fa-external-link-alt"></i>View Project </a><a href="#" class="text-indigo-400 hover:text-indigo-300"><i class="fab fa-github"></i>Code </a></div></div></div></div><div class="project-card reveal"><div class="project-card-inner"><div class="project-front glass-card"><div class="h-full bg-gradient-to-br from-purple-900 to-pink-900 flex items-center justify-center"><div class="text-center p-6"><i class="fas fa-brain text-4xl mb-4 text-purple-400"></i><h3 class="text-2xl font-bold">ML Prediction Tool</h3><p class="text-gray-300 mt-2">AI/ML Web Application</p></div></div></div><div class="project-back glass-card"><h3 class="text-xl font-bold mb-4">ML Prediction Tool</h3><p class="text-gray-300 mb-4">Machine learning-powered prediction tool with data preprocessing,
-                                                                        model training,
-                                                                        and visualization capabilities.</p><p class="text-sm text-gray-400 mb-4">Python,
-                                                                        TensorFlow,
-                                                                        Flask,
-                                                                        React,
-                                                                        Pandas</p><div class="mt-auto flex justify-end"><a href="#" class="text-purple-400 hover:text-purple-300 mr-4"><i class="fas fa-external-link-alt"></i>View Project </a><a href="#" class="text-purple-400 hover:text-purple-300"><i class="fab fa-github"></i>Code </a></div></div></div></div></div></div></section><section id="contact" class="py-20 relative"><div class="container mx-auto px-4"><div class="text-center mb-16"><h2 class="text-4xl font-bold mb-4 reveal"><span class="gradient-text">Get In</span>Touch</h2><div class="w-24 h-1 bg-green-500 mx-auto rounded-full mb-8 reveal"></div><p class="text-gray-300 max-w-2xl mx-auto reveal">Have a project in mind? Let's collaborate and create something amazing together!</p>
-                                     </div><div class="flex flex-wrap -mx-4"><div class="w-full md:w-1/2 px-4 mb-8 md:mb-0"><div class="glass-card p-8 h-full reveal"><h3 class="text-2xl font-bold mb-6">Let's Connect</h3>
-                                     <div class="space-y-6"><div class="flex items-center"><div class="w-12 h-12 bg-blue-500 bg-opacity-20 rounded-full flex items-center justify-center mr-4"><i class="fas fa-envelope text-blue-400"></i></div><div><p class="text-gray-400">Email</p><p class="text-white">alex.smith.dev@example.com</p></div></div><div class="flex items-center"><div class="w-12 h-12 bg-green-500 bg-opacity-20 rounded-full flex items-center justify-center mr-4"><i class="fas fa-phone text-green-400"></i></div><div><p class="text-gray-400">Phone</p><p class="text-white">+1 (555) 123-4567</p></div></div><div class="flex items-center"><div class="w-12 h-12 bg-purple-500 bg-opacity-20 rounded-full flex items-center justify-center mr-4"><i class="fas fa-map-marker-alt text-purple-400"></i></div><div><p class="text-gray-400">Location</p><p class="text-white">San Francisco, CA</p></div></div></div><div class="mt-8"><h4 class="text-lg font-semibold mb-4">Follow Me</h4><div class="flex space-x-4"><a href="#" class="social-icon"><i class="fab fa-github"></i></a><a href="#" class="social-icon"><i class="fab fa-linkedin"></i></a><a href="#" class="social-icon"><i class="fab fa-twitter"></i></a><a href="#" class="social-icon"><i class="fab fa-instagram"></i></a><a href="#" class="social-icon"><i class="fab fa-dribbble"></i></a></div></div></div></div><div class="w-full md:w-1/2 px-4"><div class="glass-card gradient-border p-8 h-full reveal"><h3 class="text-2xl font-bold mb-6">Send Message</h3><form id="contact-form" class="space-y-6"><div><input type="text" name="name" placeholder="Your Name" required></div><div><input type="email" name="email" placeholder="Your Email" required></div><div><input type="text" name="subject" placeholder="Subject" required></div><div><textarea name="message" rows="5" placeholder="Your Message" required></textarea></div><button type="submit" class="btn-futuristic w-full bg-blue-600 hover:bg-blue-700 border-blue-600"><i class="fas fa-paper-plane mr-2"></i>Send Message </button></form></div></div></div></div></section><footer class="py-8 bg-black bg-opacity-50 relative"><div class="container mx-auto px-4"><div class="flex flex-col md:flex-row justify-between items-center"><div class="mb-4 md:mb-0"><div class="logo gradient-text text-2xl">ALEX<span class="text-white">DEV</span></div><p class="text-gray-400 mt-2">Building the future, one line of code at a time.</p></div><div class="text-center md:text-right"><p class="text-gray-400">&copy;
-                                                                        2025 Alex Smith. All rights reserved.</p><p class="text-gray-500 text-sm mt-2">Designed with passion and precision</p></div></div></div></footer><script> // Particles.js configuration
-                                    
-                                                                        particlesJS('particles-js', {
-                                                                            particles: {
-                                                                                number: {
-                                                                                    value: 80, density: {
-                                                                                        enable: true, value_area: 800
-                                                                                    }
-                                                                                }
-                                    
-                                                                                ,
-                                                                                color: {
-                                                                                    value: "#0ea5e9"
-                                                                                }
-                                    
-                                                                                ,
-                                                                                shape: {
-                                                                                    type: "circle"
-                                                                                }
-                                    
-                                                                                ,
-                                                                                opacity: {
-                                                                                    value: 0.5, random: false
-                                                                                }
-                                    
-                                                                                ,
-                                                                                size: {
-                                                                                    value: 3, random: true
-                                                                                }
-                                    
-                                                                                ,
-                                                                                line_linked: {
-                                                                                    enable: true,
-                                                                                    distance: 150,
-                                                                                    color: "#0ea5e9",
-                                                                                    opacity: 0.4,
-                                                                                    width: 1
-                                                                                }
-                                    
-                                                                                ,
-                                                                                move: {
-                                                                                    enable: true,
-                                                                                    speed: 6,
-                                                                                    direction: "none",
-                                                                                    random: false,
-                                                                                    straight: false,
-                                                                                    out_mode: "out",
-                                                                                    bounce: false
-                                                                                }
-                                                                            }
-                                    
-                                                                            ,
-                                                                            interactivity: {
-                                    
-                                                                                detect_on: "canvas",
-                                                                                events: {
-                                                                                    onhover: {
-                                                                                        enable: true, mode: "repulse"
-                                                                                    }
-                                    
-                                                                                    ,
-                                                                                    onclick: {
-                                                                                        enable: true, mode: "push"
-                                                                                    }
-                                    
-                                                                                    ,
-                                                                                    resize: true
-                                                                                }
-                                                                            }
-                                    
-                                                                            ,
-                                                                            retina_detect: true
-                                                                        });
-                                    
-                                                                        // Three.js 3D Background
-                                                                        let scene,
-                                                                        camera,
-                                                                        renderer,
-                                                                        geometry,
-                                                                        material,
-                                                                        mesh;
-                                    
-                                                                        function init3D() {
-                                                                            const container=document.getElementById('hero-3d');
-                                    
-                                                                            scene=new THREE.Scene();
-                                                                            camera=new THREE.PerspectiveCamera(75, container.offsetWidth / container.offsetHeight, 0.1, 1000);
-                                    
-                                                                            renderer=new THREE.WebGLRenderer({
-                                                                                alpha: true, antialias: true
-                                                                            });
-                                                                        renderer.setSize(container.offsetWidth, container.offsetHeight);
-                                                                        container.appendChild(renderer.domElement);
-                                    
-                                                                        // Create geometric shapes
-                                                                        const shapes=[];
-                                    
-                                                                        for (let i=0; i < 15; i++) {
-                                                                            const geometries=[ new THREE.BoxGeometry(1, 1, 1),
-                                                                            new THREE.SphereGeometry(0.5, 8, 6),
-                                                                            new THREE.ConeGeometry(0.5, 1, 8),
-                                                                            new THREE.TetrahedronGeometry(0.8)];
-                                    
-                                                                            geometry=geometries[Math.floor(Math.random() * geometries.length)];
-                                    
-                                                                            material=new THREE.MeshBasicMaterial({
-                                                                                color: Math.random() * 0xffffff,
-                                                                                wireframe: true,
-                                                                                transparent: true,
-                                                                                opacity: 0.6
-                                                                            });
-                                                                        mesh=new THREE.Mesh(geometry, material);
-                                    
-                                                                        mesh.position.x=(Math.random() - 0.5) * 20;
-                                                                        mesh.position.y=(Math.random() - 0.5) * 20;
-                                                                        mesh.position.z=(Math.random() - 0.5) * 20;
-                                    
-                                                                        mesh.rotation.x=Math.random() * Math.PI;
-                                                                        mesh.rotation.y=Math.random() * Math.PI;
-                                    
-                                                                        shapes.push(mesh);
-                                                                        scene.add(mesh);
-                                                                        }
-                                    
-                                                                        camera.position.z=15;
-                                    
-                                                                        function animate() {
-                                                                            requestAnimationFrame(animate);
-                                    
-                                                                            shapes.forEach(shape=> {
-                                                                                    shape.rotation.x +=0.01;
-                                                                                    shape.rotation.y +=0.01;
-                                                                                    shape.position.y +=Math.sin(Date.now() * 0.001 + shape.position.x) * 0.01;
-                                                                                });
-                                    
-                                                                            renderer.render(scene, camera);
-                                                                        }
-                                    
-                                                                        animate();
-                                    
-                                                                        // Handle resize
-                                                                        window.addEventListener('resize', ()=> {
-                                                                                camera.aspect=container.offsetWidth / container.offsetHeight;
-                                                                                camera.updateProjectionMatrix();
-                                                                                renderer.setSize(container.offsetWidth, container.offsetHeight);
-                                                                            });
-                                                                        }
-                                    
-                                                                        // Initialize 3D scene
-                                                                        init3D();
-                                    
-                                                                        // GSAP Animations
-                                                                        gsap.registerPlugin(ScrollTrigger);
-                                    
-                                                                        // Reveal animations
-                                                                        gsap.utils.toArray('.reveal').forEach((elem)=> {
-                                    
-                                                                                gsap.fromTo(elem,
-                                                                                    {
-                                                                                    y: 50, opacity: 0
-                                                                                }
-                                    
-                                                                                ,
-                                                                                {
-                                    
-                                                                                y: 0,
-                                                                                opacity: 1,
-                                                                                duration: 1,
-                                                                                ease: "power2.out",
-                                                                                scrollTrigger: {
-                                                                                    trigger: elem,
-                                                                                    start: "top 80%",
-                                                                                    end: "bottom 20%",
-                                                                                    toggleActions: "play none none reverse"
-                                                                                }
-                                                                            });
-                                                                        });
-                                    
-                                                                        // Navbar scroll effect
-                                                                        window.addEventListener('scroll', ()=> {
-                                                                                const navbar=document.querySelector('.navbar');
-                                    
-                                                                                if (window.scrollY > 100) {
-                                                                                    navbar.classList.add('scrolled');
-                                                                                }
-                                    
-                                                                                else {
-                                                                                    navbar.classList.remove('scrolled');
-                                                                                }
-                                                                            });
-                                    
-                                                                        // Typing effect
-                                                                        const text="WELCOME TO MY PORTFOLIO";
-                                                                        const typingElement=document.getElementById('typing-text');
-                                                                        let i=0;
-                                    
-                                                                        function typeWriter() {
-                                                                            if (i < text.length) {
-                                                                                typingElement.innerHTML=text.substring(0, i + 1)+'<span class="typing-cursor">|</span>';
-                                                                                i++;
-                                                                                setTimeout(typeWriter, 100);
-                                                                            }
-                                    
-                                                                            else {
-                                                                                typingElement.innerHTML=text;
-                                                                            }
-                                                                        }
-                                    
-                                                                        setTimeout(typeWriter, 1000);
-                                    
-                                                                        // Mobile menu toggle
-                                                                        const mobileMenuBtn=document.getElementById('mobile-menu-btn');
-                                                                        const mobileMenu=document.getElementById('mobile-menu');
-                                                                        const closeMenuBtn=document.getElementById('close-menu-btn');
-                                    
-                                                                        mobileMenuBtn.addEventListener('click', ()=> {
-                                                                                mobileMenu.classList.remove('hidden');
-                                    
-                                                                                gsap.fromTo(mobileMenu, {
-                                                                                    opacity: 0
-                                                                                }
-                                    
-                                                                                , {
-                                                                                opacity: 1, duration: 0.3
-                                                                            });
-                                                                        });
-                                    
-                                                                        closeMenuBtn.addEventListener('click', ()=> {
-                                                                                gsap.to(mobileMenu, {
-                                                                                    opacity: 0,
-                                                                                    duration: 0.3,
-                                                                                    onComplete: ()=> mobileMenu.classList.add('hidden')
-                                                                                });
-                                                                        });
-                                    
-                                                                        // Close mobile menu when clicking on links
-                                                                        document.querySelectorAll('.mobile-nav-link').forEach(link=> {
-                                                                                link.addEventListener('click', ()=> {
-                                                                                        gsap.to(mobileMenu, {
-                                                                                            opacity: 0,
-                                                                                            duration: 0.3,
-                                                                                            onComplete: ()=> mobileMenu.classList.add('hidden')
-                                                                                        });
-                                                                                });
-                                                                        });
-                                    
-                                                                        // Smooth scrolling for navigation links
-                                                                        document.querySelectorAll('a[href^="#"]').forEach(anchor=> {
-                                                                                anchor.addEventListener('click', function (e) {
-                                                                                        e.preventDefault();
-                                                                                        const target=document.querySelector(this.getAttribute('href'));
-                                    
-                                                                                        if (target) {
-                                                                                            target.scrollIntoView({
-                                                                                                behavior: 'smooth',
-                                                                                                block: 'start'
-                                                                                            });
-                                                                                    }
-                                                                                });
-                                                                        });
-                                    
-                                                                        // Contact form submission
-                                                                        document.getElementById('contact-form').addEventListener('submit', function(e) {
-                                                                                e.preventDefault();
-                                    
-                                                                                // Simple form validation and submission simulation
-                                                                                const formData=new FormData(this);
-                                                                                const submitBtn=this.querySelector('button[type="submit"]');
-                                    
-                                                                                submitBtn.innerHTML='<i class="fas fa-spinner fa-spin mr-2"></i>Sending...';
-                                                                                submitBtn.disabled=true;
-                                    
-                                                                                setTimeout(()=> {
-                                                                                        alert('Thank you for your message! I\'ll get back to you soon.');
-                                                                                        this.reset();
-                                                                                        submitBtn.innerHTML='<i class="fas fa-paper-plane mr-2"></i>Send Message';
-                                                                                        submitBtn.disabled=false;
-                                                                                    }
-                                    
-                                                                                    , 2000);
-                                                                            });
-                                    
-                                                                        // Add floating animation to skill pills
-                                                                        document.querySelectorAll('.skill-pill').forEach((pill, index)=> {
-                                                                                gsap.to(pill, {
-                                                                                    y: Math.sin(index) * 10,
-                                                                                    duration: 2 + Math.random(),
-                                                                                    repeat: -1,
-                                                                                    yoyo: true,
-                                                                                    ease: "power1.inOut",
-                                                                                    delay: index * 0.1
-                                                                                });
-                                                                        });
-                                    
-                                                                        // Parallax effect for glow elements
-                                                                        window.addEventListener('scroll', ()=> {
-                                                                                const scrolled=window.pageYOffset;
-                                                                                const parallaxElements=document.querySelectorAll('.glow');
-                                    
-                                                                                parallaxElements.forEach((element, index)=> {
-                                                                                        const speed=0.5 + (index * 0.1);
-                                                                                        const yPos=-(scrolled * speed);
-                                    
-                                                                                        element.style.transform=`translate3d(0, $ {
+        // Download file
+        function downloadFile() {
+            const link = document.createElement('a');
+            link.href = 'assets/SUBHAJIT-SETH-CV.pdf';  // path to your file
+            link.download = 'SUBHAJIT-SETH-CV.pdf';     // the name it will be saved as
+            document.body.appendChild(link);  // required for Firefox
+            link.click();
+            document.body.removeChild(link);  // cleanup
+        }
+
+        // JavaScript to set the current year
+        document.getElementById("year").textContent = new Date().getFullYear();
+
+        document.getElementById("year").textContent = new Date().getFullYear();
+
+        // Get hostname and remove ".site"
+        const hostname = window.location.hostname; // e.g., sethdev.site
+        const cleanName = hostname.replace('.site', ''); // removes the .site part
+
+        // Capitalize the first letter
+        const capitalizedName = cleanName.charAt(0).toUpperCase() + cleanName.slice(1).toLowerCase();
+
+        document.getElementById("site-name").textContent = capitalizedName;
+
+        // Particles.js configuration
+
+        particlesJS("particles-js", {
+            particles: {
+                number: {
+                    value: 80,
+                    density: {
+                        enable: true,
+                        value_area: 800,
+                    },
+                },
+
+                color: {
+                    value: "#0ea5e9",
+                },
+
+                shape: {
+                    type: "circle",
+                },
+
+                opacity: {
+                    value: 0.5,
+                    random: false,
+                },
+
+                size: {
+                    value: 3,
+                    random: true,
+                },
+
+                line_linked: {
+                    enable: true,
+                    distance: 150,
+                    color: "#0ea5e9",
+                    opacity: 0.4,
+                    width: 1,
+                },
+
+                move: {
+                    enable: true,
+                    speed: 6,
+                    direction: "none",
+                    random: false,
+                    straight: false,
+                    out_mode: "out",
+                    bounce: false,
+                },
+            },
+
+            interactivity: {
+                detect_on: "canvas",
+                events: {
+                    onhover: {
+                        enable: true,
+                        mode: "repulse",
+                    },
+
+                    onclick: {
+                        enable: true,
+                        mode: "push",
+                    },
+
+                    resize: true,
+                },
+            },
+
+            retina_detect: true,
+        });
+
+        // Three.js 3D Background
+        let scene, camera, renderer, geometry, material, mesh;
+
+        function init3D() {
+            const container = document.getElementById("hero-3d");
+
+            scene = new THREE.Scene();
+            camera = new THREE.PerspectiveCamera(75, container.offsetWidth / container.offsetHeight, 0.1, 1000);
+
+            renderer = new THREE.WebGLRenderer({
+                alpha: true,
+                antialias: true,
+            });
+            renderer.setSize(container.offsetWidth, container.offsetHeight);
+            container.appendChild(renderer.domElement);
+
+            // Create geometric shapes
+            const shapes = [];
+
+            for (let i = 0; i < 15; i++) {
+                const geometries = [new THREE.BoxGeometry(1, 1, 1), new THREE.SphereGeometry(0.5, 8, 6), new THREE.ConeGeometry(0.5, 1, 8), new THREE.TetrahedronGeometry(0.8)];
+
+                geometry = geometries[Math.floor(Math.random() * geometries.length)];
+
+                material = new THREE.MeshBasicMaterial({
+                    color: Math.random() * 0xffffff,
+                    wireframe: true,
+                    transparent: true,
+                    opacity: 0.6,
+                });
+                mesh = new THREE.Mesh(geometry, material);
+
+                mesh.position.x = (Math.random() - 0.5) * 20;
+                mesh.position.y = (Math.random() - 0.5) * 20;
+                mesh.position.z = (Math.random() - 0.5) * 20;
+
+                mesh.rotation.x = Math.random() * Math.PI;
+                mesh.rotation.y = Math.random() * Math.PI;
+
+                shapes.push(mesh);
+                scene.add(mesh);
+            }
+
+            camera.position.z = 15;
+
+            function animate() {
+                requestAnimationFrame(animate);
+
+                shapes.forEach((shape) => {
+                    shape.rotation.x += 0.01;
+                    shape.rotation.y += 0.01;
+                    shape.position.y += Math.sin(Date.now() * 0.001 + shape.position.x) * 0.01;
+                });
+
+                renderer.render(scene, camera);
+            }
+
+            animate();
+
+            // Handle resize
+            window.addEventListener("resize", () => {
+                camera.aspect = container.offsetWidth / container.offsetHeight;
+                camera.updateProjectionMatrix();
+                renderer.setSize(container.offsetWidth, container.offsetHeight);
+            });
+        }
+
+        // Initialize 3D scene
+        init3D();
+
+        // GSAP Animations
+        gsap.registerPlugin(ScrollTrigger);
+
+        // Reveal animations
+        gsap.utils.toArray(".reveal").forEach((elem) => {
+            gsap.fromTo(
+                elem,
+                {
+                    y: 50,
+                    opacity: 0,
+                },
+
+                {
+                    y: 0,
+                    opacity: 1,
+                    duration: 1,
+                    ease: "power2.out",
+                    scrollTrigger: {
+                        trigger: elem,
+                        start: "top 80%",
+                        end: "bottom 20%",
+                        toggleActions: "play none none reverse",
+                    },
+                }
+            );
+        });
+
+        // Navbar scroll effect
+        window.addEventListener("scroll", () => {
+            const navbar = document.querySelector(".navbar");
+
+            if (window.scrollY > 100) {
+                navbar.classList.add("scrolled");
+            } else {
+                navbar.classList.remove("scrolled");
+            }
+        });
+
+        // Typing effect
+        const text = "WELCOME TO MY PORTFOLIO";
+        const typingElement = document.getElementById("typing-text");
+        let i = 0;
+
+        function typeWriter() {
+            if (i < text.length) {
+                typingElement.innerHTML = text.substring(0, i + 1) + '<span class="typing-cursor">|</span>';
+                i++;
+                setTimeout(typeWriter, 100);
+            } else {
+                typingElement.innerHTML = text;
+            }
+        }
+
+        setTimeout(typeWriter, 1000);
+
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById("mobile-menu-btn");
+        const mobileMenu = document.getElementById("mobile-menu");
+        const closeMenuBtn = document.getElementById("close-menu-btn");
+
+        mobileMenuBtn.addEventListener("click", () => {
+            mobileMenu.classList.remove("hidden");
+
+            gsap.fromTo(
+                mobileMenu,
+                {
+                    opacity: 0,
+                },
+
+                {
+                    opacity: 1,
+                    duration: 0.3,
+                }
+            );
+        });
+
+        closeMenuBtn.addEventListener("click", () => {
+            gsap.to(mobileMenu, {
+                opacity: 0,
+                duration: 0.3,
+                onComplete: () => mobileMenu.classList.add("hidden"),
+            });
+        });
+
+        // Close mobile menu when clicking on links
+        document.querySelectorAll(".mobile-nav-link").forEach((link) => {
+            link.addEventListener("click", () => {
+                gsap.to(mobileMenu, {
+                    opacity: 0,
+                    duration: 0.3,
+                    onComplete: () => mobileMenu.classList.add("hidden"),
+                });
+            });
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+            anchor.addEventListener("click", function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute("href"));
+
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: "smooth",
+                        block: "start",
+                    });
+                }
+            });
+        });
+
+        // // Contact form submission
+        // document.getElementById("contact-form").addEventListener("submit", function (e) {
+        //     e.preventDefault();
+
+        //     // Simple form validation and submission simulation
+        //     const formData = new FormData(this);
+        //     const submitBtn = this.querySelector('button[type="submit"]');
+
+        //     submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i>Sending...';
+        //     submitBtn.disabled = true;
+
+        //     setTimeout(
+        //         () => {
+        //             alert("Thank you for your message! I'll get back to you soon.");
+        //             this.reset();
+        //             submitBtn.innerHTML = '<i class="fas fa-paper-plane mr-2"></i>Send Message';
+        //             submitBtn.disabled = false;
+        //         },
+
+        //         2000
+        //     );
+        // });
+
+        
+        document.getElementById("contact-form").addEventListener("submit", function (e) {
+            e.preventDefault();
+
+            const form = e.target;
+            const data = new FormData(form);
+            const statusMsg = document.getElementById("response-message");
+            const submitBtn = form.querySelector('button[type="submit"]');
+
+            // Update button to show loading
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i>Sending...';
+            submitBtn.disabled = true;
+
+            // Helper to show message with color and auto-hide
+            function showMessage(message, color) {
+                statusMsg.textContent = message;
+                statusMsg.style.color = color;
+                statusMsg.style.display = "block";
+                statusMsg.style.letterSpacing = "1px";
+                statusMsg.style.fontSize = "13px";
+                statusMsg.style.fontWeight = "600";
+
+            // Hide after 3 seconds
+            setTimeout(() => {
+                statusMsg.textContent = "";
+                        statusMsg.style.display = "none";
+                }, 3000);
+            }
+
+            // Send form data to Formspree
+            fetch("https://formspree.io/f/manokdrq", {
+                method: "POST",
+                body: data,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            })
+            .then(response => {
+                if (response.ok) {
+                            showMessage("Message sent successfully!", "white");
+                        form.reset();
+                } else {
+                            response.json().then(data => {
+                                const error = data.error || "Oops! Something went wrong.";
+                                showMessage(error, "white");
+                            });
+                }
+            })
+            .catch(error => {
+                            showMessage("Error sending message.", "white");
+            })
+            .finally(() => {
+                            submitBtn.innerHTML = '<i class="fas fa-paper-plane mr-2"></i>Send Message';
+                        submitBtn.disabled = false;
+            });
+        });
+        
+
+        // Add floating animation to skill pills
+        document.querySelectorAll(".skill-pill").forEach((pill, index) => {
+            gsap.to(pill, {
+                y: Math.sin(index) * 10,
+                duration: 2 + Math.random(),
+                repeat: -1,
+                yoyo: true,
+                ease: "power1.inOut",
+                delay: index * 0.1,
+            });
+        });
+
+        // Parallax effect for glow elements
+        window.addEventListener("scroll", () => {
+            const scrolled = window.pageYOffset;
+            const parallaxElements = document.querySelectorAll(".glow");
+
+            parallaxElements.forEach((element, index) => {
+                const speed = 0.5 + index * 0.1;
+                const yPos = -(scrolled * speed);
+
+                element.style.transform = `translate3d(0, $ {
                                                                                                 yPos
                                                                                             }
                                     
                                                                                             px, 0)`;
-                                                                                    });
-                                                                            });
-                                                                        </script></body></html>
+            });
+        });
+    </script>
+</body>
+
+</html>
