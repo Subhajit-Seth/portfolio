@@ -81,13 +81,13 @@
             border: 1px solid rgba(255, 255, 255, 0.1);
             border-radius: 16px;
             box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-            transition: all 0.5s ease;
+            height: 100%;
+            /* Removed conflicting hover effects */
         }
 
-        .glass-card:hover {
-            transform: translateY(-10px);
-            background: rgba(255, 255, 255, 0.1);
-            box-shadow: 0 10px 40px rgba(8, 112, 184, 0.4);
+        /* Optional: Add subtle glow effect to the entire card on hover instead */
+        .project-card:hover {
+            filter: drop-shadow(0 10px 30px rgba(8, 112, 184, 0.3));
         }
 
         .gradient-text {
@@ -473,8 +473,10 @@
             justify-content: space-between;
             align-items: center;
             gap: 10px;
-            max-width: 400px; /* Optional: limit width */
-            margin: 0 auto;    /* Center the button row */
+            max-width: 400px;
+            /* Optional: limit width */
+            margin: 0 auto;
+            /* Center the button row */
         }
 
         .btn {
@@ -601,9 +603,9 @@
             <div class="hero-content">
                 <div class="w-full md:w-2/3">
                     <p class="text-blue-400 mb-2 tracking-wider reveal" id="typing-text">WELCOME TO MY PORTFOLIO</p>
-                    <h1 class="text-5xl md:text-7xl font-bold mb-4 reveal">I'm <span class="gradient-text">Subhajit 
+                    <h1 class="text-5xl md:text-7xl font-bold mb-4 reveal">I'm <span class="gradient-text">Subhajit
                             Seth</span></h1>
-                    <h2 class="text-3xl md:text-4xl mb-6 text-gray-300 reveal">Web Developer 
+                    <h2 class="text-3xl md:text-4xl mb-6 text-gray-300 reveal">Web Developer
                     </h2>
                     <p class="text-gray-400 text-lg mb-8 max-w-lg reveal">Creating cutting-edge digital experiences with
                         a focus on performance, aesthetics, and user-centered design.</p>
@@ -635,31 +637,22 @@
                     <div class="glass-card p-8 h-full reveal">
                         <h3 class="text-2xl font-bold mb-4">My Journey</h3>
                         <p class="text-gray-300 mb-6">
-                            I'm a passionate tech enthusiast with over 5 years of experience in web 
+                            I'm a passionate tech enthusiast with over 5 years of experience in web
                             development. My journey started with a fascination for code and design, which has evolved
                             into a career creating digital
                             solutions that solve real-world problems.
                         </p>
                         <p class="text-gray-300">
-                            I specialize in building modern, responsive applications using CodeIgniter and Laravel. I also have strong expertise in
-                            REST API development, core PHP, MySQL, JavaScript (jQuery, Ajax), and front-end technologies such as Bootstrap, CSS3,
+                            I specialize in building modern, responsive applications using CodeIgniter and Laravel. I
+                            also have strong expertise in
+                            REST API development, core PHP, MySQL, JavaScript (jQuery, Ajax), and front-end technologies
+                            such as Bootstrap, CSS3,
                             and HTML5, utilizing the latest technologies.My
                             approach combines technical expertise with creative thinking to deliver products that not
                             only function flawlessly
                             but also provide exceptional user experiences.
                         </p>
-                        <!-- <div class="container">
-                            <div class="row mt-5 d-flex">
-                                <div class="align-left">
-                                    <a href="#" onclick="downloadCV()" class="btn-futuristic btn-download">
-                                    <i class="fas fa-download mr-2"></i>Download CV</a>
-                                </div>
-                                <div class="align-right">
-                                    <a href="#contact" class="btn-futuristic btn-hire">
-                                    <i class="fas fa-handshake mr-2"></i>Hire Me</a>
-                                </div>
-                            </div>
-                        </div> -->
+                        
                         <div class="mt-5">
                             <a onclick="downloadFile()" class="btn-futuristic btn-download" download>
                                 <i class="fas fa-download mr-2"></i>
@@ -687,7 +680,7 @@
                                 Building secure, efficient APIs to connect apps and streamline data flow.
                             </p>
                         </div>
-                        <div  class="mb-6">
+                        <div class="mb-6">
                             <div class="flex items-center mb-2">
                                 <i class="fas fa-server text-green-400 mr-3 text-xl"></i>
                                 <h4 class="text-xl font-semibold">Backend Development</h4>
@@ -787,18 +780,10 @@
                             <span class="skill-pill">jQuery</span>
                             <span class="skill-pill">Css</span>
                             <span class="skill-pill">Html</span>
-                            <!-- <span class="skill-pill">AWS</span>
-                            <span class="skill-pill">Firebase</span> -->
                             <span class="skill-pill">Git</span>
                             <span class="skill-pill">GitHub</span>
                             <span class="skill-pill">Figma</span>
-                            <!-- <span class="skill-pill">Adobe XD</span>
-                            <span class="skill-pill">Tailwind CSS</span>
-                            <span class="skill-pill">SASS</span>
-                            <span class="skill-pill">Jest</span>
-                            <span class="skill-pill">Cypress</span>
-                            <span class="skill-pill">WebGL</span>
-                            <span class="skill-pill">Three.js</span> -->
+                            
                         </div>
                     </div>
                 </div>
@@ -1021,9 +1006,15 @@
                         <div class="mt-8">
                             <h4 class="text-lg font-semibold mb-4">Follow Me</h4>
                             <div class="flex space-x-4">
-                                <a href="https://github.com/Subhajit-Seth" class="social-icon"><i class="fab fa-github"></i></a><a href="https://www.linkedin.com/in/subhajit-seth"
-                                    class="social-icon"><i class="fab fa-linkedin"></i></a><a href="https://x.com/Subhajit_Sy8"class="social-icon"><i class="fab fa-x"></i></a>
-                                <a href="https://www.facebook.com/subhajit.seth.2025" class="social-icon"><i class="fab fa-facebook"></i></a><a href="https://www.instagram.com/subhajit_sy8/"class="social-icon"><i class="fab fa-instagram"></i></a>
+                                <a href="https://github.com/Subhajit-Seth" class="social-icon"><i
+                                        class="fab fa-github"></i></a><a
+                                    href="https://www.linkedin.com/in/subhajit-seth" class="social-icon"><i
+                                        class="fab fa-linkedin"></i></a><a href="https://x.com/Subhajit_Sy8"
+                                    class="social-icon"><i class="fab fa-x"></i></a>
+                                <a href="https://www.facebook.com/subhajit.seth.2025" class="social-icon"><i
+                                        class="fab fa-facebook"></i></a><a
+                                    href="https://www.instagram.com/subhajit_sy8/" class="social-icon"><i
+                                        class="fab fa-instagram"></i></a>
                             </div>
                         </div>
                     </div>
@@ -1053,7 +1044,8 @@
                     <p class="text-gray-400 mt-2">Building the future, one line of code at a time.</p>
                 </div>
                 <div class="text-center md:text-right">
-                    <p class="text-gray-400">Copyright &copy; <span id="year"></span> <span id="site-name"></span> All rights reserved.</p>
+                    <p class="text-gray-400">Copyright &copy; <span id="year"></span> <span id="site-name"></span> All
+                        rights reserved.</p>
                     <p class="text-gray-500 text-sm mt-2">Designed with passion and precision</p>
                 </div>
             </div>
@@ -1334,29 +1326,6 @@
             });
         });
 
-        // // Contact form submission
-        // document.getElementById("contact-form").addEventListener("submit", function (e) {
-        //     e.preventDefault();
-
-        //     // Simple form validation and submission simulation
-        //     const formData = new FormData(this);
-        //     const submitBtn = this.querySelector('button[type="submit"]');
-
-        //     submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i>Sending...';
-        //     submitBtn.disabled = true;
-
-        //     setTimeout(
-        //         () => {
-        //             alert("Thank you for your message! I'll get back to you soon.");
-        //             this.reset();
-        //             submitBtn.innerHTML = '<i class="fas fa-paper-plane mr-2"></i>Send Message';
-        //             submitBtn.disabled = false;
-        //         },
-
-        //         2000
-        //     );
-        // });
-
         
         document.getElementById("contact-form").addEventListener("submit", function (e) {
             e.preventDefault();
@@ -1379,10 +1348,10 @@
                 statusMsg.style.fontSize = "13px";
                 statusMsg.style.fontWeight = "600";
 
-            // Hide after 3 seconds
-            setTimeout(() => {
-                statusMsg.textContent = "";
-                        statusMsg.style.display = "none";
+                // Hide after 3 seconds
+                setTimeout(() => {
+                    statusMsg.textContent = "";
+                    statusMsg.style.display = "none";
                 }, 3000);
             }
 
@@ -1394,26 +1363,26 @@
                     'Accept': 'application/json'
                 }
             })
-            .then(response => {
-                if (response.ok) {
-                            showMessage("Message sent successfully!", "white");
+                .then(response => {
+                    if (response.ok) {
+                        showMessage("Message sent successfully!", "white");
                         form.reset();
-                } else {
-                            response.json().then(data => {
-                                const error = data.error || "Oops! Something went wrong.";
-                                showMessage(error, "white");
-                            });
-                }
-            })
-            .catch(error => {
-                            showMessage("Error sending message.", "white");
-            })
-            .finally(() => {
-                            submitBtn.innerHTML = '<i class="fas fa-paper-plane mr-2"></i>Send Message';
-                        submitBtn.disabled = false;
-            });
+                    } else {
+                        response.json().then(data => {
+                            const error = data.error || "Oops! Something went wrong.";
+                            showMessage(error, "white");
+                        });
+                    }
+                })
+                .catch(error => {
+                    showMessage("Error sending message.", "white");
+                })
+                .finally(() => {
+                    submitBtn.innerHTML = '<i class="fas fa-paper-plane mr-2"></i>Send Message';
+                    submitBtn.disabled = false;
+                });
         });
-        
+
 
         // Add floating animation to skill pills
         document.querySelectorAll(".skill-pill").forEach((pill, index) => {
