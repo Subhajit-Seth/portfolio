@@ -979,7 +979,7 @@
                                 </div>
                                 <div>
                                     <p class="text-gray-400">Email</p>
-                                    <p class="text-white">subhajitseth1998@gmail.com</p>
+                                    <p class="text-white">subhajitseth1013@gmail.com</p>
                                 </div>
                             </div>
                             <div class="flex items-center">
@@ -989,7 +989,7 @@
                                 </div>
                                 <div>
                                     <p class="text-gray-400">Phone</p>
-                                    <p class="text-white">+91 6295369020</p>
+                                    <p class="text-white">+91 6295369020 / +91 9641091265</p>
                                 </div>
                             </div>
                             <div class="flex items-center">
@@ -1044,9 +1044,9 @@
                     <p class="text-gray-400 mt-2">Building the future, one line of code at a time.</p>
                 </div>
                 <div class="text-center md:text-right">
-                    <p class="text-gray-400">Copyright &copy; <span id="year"></span> <span id="site-name"></span> All
+                    <p class="text-gray-400">Copyright &copy; <span id="year"></span> <span id="site-name"></span>.site All
                         rights reserved.</p>
-                    <p class="text-gray-500 text-sm mt-2">Designed with passion and precision</p>
+                    <p class="text-gray-500 text-sm mt-2">Website designed & developed by Subhajit Seth</p>
                 </div>
             </div>
         </div>
@@ -1068,13 +1068,15 @@
 
         document.getElementById("year").textContent = new Date().getFullYear();
 
-        // Get hostname and remove ".site"
-        const hostname = window.location.hostname; // e.g., sethdev.site
-        const cleanName = hostname.replace('.site', ''); // removes the .site part
-
-        // Capitalize the first letter
-        const capitalizedName = cleanName.charAt(0).toUpperCase() + cleanName.slice(1).toLowerCase();
-
+        // Get full hostname
+        const hostname = window.location.hostname; // e.g., www.sethdev.site
+        
+        // Lowercase everything first (in case it's mixed)
+        const cleanName = hostname.toLowerCase();
+        
+        // Capitalize first letter only
+        const capitalizedName = cleanName.charAt(0).toUpperCase() + cleanName.slice(1);
+        
         document.getElementById("site-name").textContent = capitalizedName;
 
         // Particles.js configuration
@@ -1414,5 +1416,6 @@
         });
     </script>
 </body>
+
 
 </html>
