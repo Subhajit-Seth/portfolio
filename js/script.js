@@ -15,7 +15,7 @@ document.getElementById("year").textContent = new Date().getFullYear();
 
 // Get hostname and remove ".site"
 const hostname = window.location.hostname; // e.g., sethdev.site
-const cleanName = hostname.replace('.site', ''); // removes the .site part
+const cleanName = hostname.replace('.site','www.' ''); // removes the .site part
 
 // Capitalize the first letter
 const capitalizedName = cleanName.charAt(0).toUpperCase() + cleanName.slice(1).toLowerCase();
@@ -351,4 +351,5 @@ window.addEventListener("scroll", () => {
         const yPos = -(scrolled * speed);
         element.style.transform = `translate3d(0, $ {yPos}px, 0)`;
     });
+
 });
